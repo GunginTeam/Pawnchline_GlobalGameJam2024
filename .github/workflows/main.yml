@@ -37,18 +37,3 @@ jobs:
           ITCH_GAME: ${{ vars.ITCH_GAME }}
           ITCH_USER: ${{ vars.ITCH_USER }}
           PACKAGE: build/WebGL
-      # Build for PC
-      - name: Build PC project
-        uses: game-ci/unity-builder@v2
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-        with:
-          targetPlatform: StandaloneWindows64
-      # Upload PC to Itch
-      - uses: josephbmanley/butler-publish-itchio-action@master
-        env:
-          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-          CHANNEL: windows
-          ITCH_GAME: ${{ secrets.ITCH_GAME }}
-          ITCH_USER: ${{ secrets.ITCH_USER }}
-          PACKAGE: build/Windows
