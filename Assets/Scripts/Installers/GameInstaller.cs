@@ -1,5 +1,4 @@
 using Services.Runtime.AudioService;
-using Services.Runtime.Localization;
 using Services.Runtime.RemoteVariables;
 using Zenject;
 
@@ -14,8 +13,12 @@ public class GameInstaller : MonoInstaller
 
     private void InstallPackages()
     {
-        Container.Bind<IAudioService>().To<AudioService>().AsSingle();
-        Container.Bind<ILocalizationService>().To<LocalizationService>().AsSingle();
-        Container.Bind<IRemoteVariablesService>().To<RemoteVariablesService>().AsSingle();
+        Container.Bind<IAudioService>().To<AudioService>()
+            .AsSingle()
+            .NonLazy();
+        
+        Container.Bind<IRemoteVariablesService>().To<RemoteVariablesService>()
+            .AsSingle()
+            .NonLazy();
     }
 }
