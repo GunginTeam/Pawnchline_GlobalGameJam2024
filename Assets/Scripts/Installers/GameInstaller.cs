@@ -8,9 +8,16 @@ public class GameInstaller : MonoInstaller
     {
         Container.Bind<IInstancer>().To<Instancer>().AsSingle();
 
+        InstallServices();
         InstallPackages();
     }
 
+    private void InstallServices()
+    {
+        Container.Bind<IScoreService>().To<ScoreService>()
+            .AsSingle();
+    }
+    
     private void InstallPackages()
     {
         Container.Bind<IAudioService>().To<AudioService>()
