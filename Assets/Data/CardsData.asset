@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcb4feb4f98d436d8518b815a803cc11, type: 3}
   m_Name: CardsData
   m_EditorClassIdentifier: 
+  CardPrefab: {fileID: 2888385563995035897, guid: bb4dcdaab73564dc299cb33f3bb44568, type: 3}
   Cards:
   - TextKey: CARD_TEXT_0
     HummorTypes: 0000000001000000
