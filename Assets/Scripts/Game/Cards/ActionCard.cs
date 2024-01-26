@@ -3,13 +3,13 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-public class Card : MonoBehaviour
+public class ActionCard : BaseCard
 {
     [SerializeField] private TMP_Text _text;
 
     private IRemoteVariablesService _remoteVariablesService;
     
-    private CardData _cardData;
+    private ActionCardData _actionCardData;
 
     [Inject]
     public void Construct(IRemoteVariablesService remoteVariablesService)
@@ -17,10 +17,13 @@ public class Card : MonoBehaviour
         _remoteVariablesService = remoteVariablesService;
     }
     
-    public void Initialize(CardData data)
+    public ActionCard Initialize(ActionCardData data)
     {
-        _cardData = data;
+        _actionCardData = data;
 
-        _text.text = _remoteVariablesService.GetString(_cardData.TextKey);
+        gameObject.name = _actionCardData.TextKey;
+        _text.text = _remoteVariablesService.GetString(_actionCardData.TextKey);
+
+        return this;
     }
 }
