@@ -3,8 +3,10 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
+public abstract class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
+    public bool IsAction { get; protected set; }
+    
     [SerializeField] private Transform _container;
 
     private Action<BaseCard> _onSelected;
@@ -14,8 +16,9 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private bool _isDragging;
     
     private bool _isConsumed;
-    
-    public void Consume()
+
+    protected abstract void OnConsume();
+    public void Consume(Action onComplete = null)
     {
         _isConsumed = true;
         
@@ -23,6 +26,7 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _container.DORotate(Vector3.forward * 500, 0.5f).SetRelative().OnComplete(() =>
         {
             Destroy(gameObject);
+            onComplete?.Invoke();
         });
     }
     
@@ -31,6 +35,7 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _onSelected = onSelected;
         _onDisSelected = onDisSelected;
     }
+    
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (_isHighlighted || _isConsumed)

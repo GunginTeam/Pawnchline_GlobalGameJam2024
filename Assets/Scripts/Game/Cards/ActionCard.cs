@@ -20,6 +20,8 @@ public class ActionCard : BaseCard
     
     public ActionCard Initialize(ActionCardData data)
     {
+        IsAction = true;
+        
         _actionCardData = data;
 
         gameObject.name = _actionCardData.TextKey;
@@ -31,5 +33,10 @@ public class ActionCard : BaseCard
     public List<HumorType> GetCardHumor()
     {
         return _actionCardData.HummorTypes;
+    }
+
+    protected override void OnConsume()
+    {
+        //Call the Service
     }
 }
