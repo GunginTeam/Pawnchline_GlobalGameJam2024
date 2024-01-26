@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -6,12 +7,33 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Transform _container;
 
+    private Action<BaseCard> _onSelected;
+    private Action _onDisSelected;
+    
     private bool _isHighlighted;
     private bool _isDragging;
-
+    
+    private bool _isConsumed;
+    
+    public void Consume()
+    {
+        _isConsumed = true;
+        
+        _container.DOScale(0, 0.25f);
+        _container.DORotate(Vector3.forward * 500, 0.5f).SetRelative().OnComplete(() =>
+        {
+            Destroy(gameObject);
+        });
+    }
+    
+    public void SetOnSelectCard(Action<BaseCard> onSelected, Action onDisSelected)
+    {
+        _onSelected = onSelected;
+        _onDisSelected = onDisSelected;
+    }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (_isHighlighted)
+        if (_isHighlighted || _isConsumed)
         {
             return;
         }
@@ -21,7 +43,7 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!_isHighlighted || _isDragging)
+        if (!_isHighlighted || _isDragging || _isConsumed)
         {
             return;
         }
@@ -31,23 +53,26 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (_isDragging)
+        if (_isDragging || _isConsumed)
         {
             return;
         }
 
         _isDragging = true;
+        
+        _onSelected.Invoke(this);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (!_isDragging)
+        if (!_isDragging || _isConsumed)
         {
             return;
         }
 
         _isDragging = false;
-
+        
+        _onDisSelected.Invoke();
         ResetPosition();
     }
 
@@ -70,6 +95,11 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private void ResetPosition()
     {
+        if (_isConsumed)
+        {
+            return;
+        }
+        
         _container.DORotate(Vector3.forward * 0, 0.1f).OnComplete(() =>
         {
             _container.DOScale(1, 0.25f);
