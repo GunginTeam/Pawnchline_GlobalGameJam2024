@@ -8,8 +8,10 @@ using Zenject;
 public class GameInstaller : MonoInstaller
 {
     [SerializeField] private CardsData _cardsData;
-    [FormerlySerializedAs("_charactersSpritesModel")] [SerializeField] private CharactersData _charactersData;
-    
+
+    [FormerlySerializedAs("_charactersSpritesModel")] [SerializeField]
+    private CharactersData _charactersData;
+
     public override void InstallBindings()
     {
         Container.Bind<IInstancer>().To<Instancer>().AsSingle();
@@ -27,19 +29,17 @@ public class GameInstaller : MonoInstaller
 
     private void InstallServices()
     {
-        Container.Bind<IScoreService>().To<ScoreService>()
-            .AsSingle();  
-        
-        Container.Bind<ICardsService>().To<CardsService>()
-            .AsSingle();
+        Container.Bind<IScoreService>().To<ScoreService>().AsSingle();
+        Container.Bind<ICardsService>().To<CardsService>().AsSingle();
+        Container.Bind<ICharacterService>().To<CharacterService>().AsSingle();
     }
-    
+
     private void InstallPackages()
     {
         Container.Bind<IAudioService>().To<AudioService>()
             .AsSingle()
             .NonLazy();
-        
+
         Container.Bind<IRemoteVariablesService>().To<RemoteVariablesService>()
             .AsSingle()
             .NonLazy();

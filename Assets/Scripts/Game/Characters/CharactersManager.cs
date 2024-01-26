@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
@@ -12,11 +13,17 @@ public class CharactersManager : MonoBehaviour
     private CharactersData _charactersData;
 
     [Inject]
-    public void Construct(CharactersData charactersData)
+    public void Construct(ICharacterService characterService, CharactersData charactersData)
     {
+        characterService.AssignManager(this);
         _charactersData = charactersData;
     }
 
+    public List<CharacterHumor> GetPublicHumor()
+    {
+        return _characters.Select(character => character.GetHumor()).ToList();
+    }
+    
     private void Start()
     {
         foreach (var character in _characters)
