@@ -4,7 +4,5 @@ using UnityEngine;
 [Serializable]
 public class HatSprite
 {
-    [SerializeField] 
-    private Sprite _hatSprite;
-
+    public Sprite _sprite;
 }

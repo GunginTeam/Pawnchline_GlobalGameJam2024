@@ -5,14 +5,16 @@ using Zenject;
 
 public class CharactersManager : MonoBehaviour
 {
-    [FormerlySerializedAs("_characterPositions")] [SerializeField] private List<Character> _characters;
+    [SerializeField] private List<Character> _characters;
+    [Range(0f,1f)]
+    [SerializeField] private float _hatChance;
     
-    private CharactersSpritesModel _charactersSpritesModel;
+    private CharactersData _charactersData;
 
     [Inject]
-    public void Construct(CharactersSpritesModel charactersSpritesModel)
+    public void Construct(CharactersData charactersData)
     {
-        _charactersSpritesModel = charactersSpritesModel;
+        _charactersData = charactersData;
     }
 
     private void Start()
@@ -20,13 +22,14 @@ public class CharactersManager : MonoBehaviour
         foreach (var character in _characters)
         {
             var visualData = GetCharacterSpriteData();
-            character.Initialize(visualData);
+            var hasHat = Random.Range(0f, 1f) <= _hatChance;
+            character.Initialize(visualData, _charactersData.GetRandomHumor(), hasHat ? _charactersData.GetHatSprite() : null);
         }
     }
 
     private CharacterVisualData GetCharacterSpriteData()
     {
         var animalType = (CharacterType)Random.Range(0, 4);
-        return _charactersSpritesModel.GetCharacterVisualData(animalType);
+        return _charactersData.GetCharacterVisualData(animalType);
     }
 }
