@@ -1,14 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class Character : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private GameObject _hatObject;
+    [SerializeField] private GameObject _reactionObject;
 
     private CharacterVisualData _visualData;
     private CharacterHumor _humorPreferences;
+    private ReactionsModel _reactionsModel;
 
+    [Inject]
+    public void Construct(ReactionsModel reactionsModel)
+    {
+        _reactionsModel = reactionsModel;
+    }
+    
     public void Initialize(CharacterVisualData visualData, CharacterHumor humor, HatSprite hatSprite)
     {
         _humorPreferences = humor;
@@ -27,7 +37,9 @@ public class Character : MonoBehaviour
 
     public void ReactToCard(List<HumorType> humorTypes)
     {
-        
+        var totalHumor = _humorPreferences.ComputeHumorReaction(humorTypes);
+        var reactionSprite = _reactionsModel.GetCorrespondingReaction(totalHumor);
+        StartCoroutine(AnimateReaction(reactionSprite));
     }
     
     private void PutOnTheHat(CharacterVisualData visualData, HatSprite hatSprite)
@@ -42,6 +54,11 @@ public class Character : MonoBehaviour
 
         _hatObject.GetComponent<SpriteRenderer>().sprite = hatSprite._sprite;
     }
-    
-    
+
+    private IEnumerator AnimateReaction(Sprite reactionSprite)
+    {
+        _reactionObject.GetComponent<SpriteRenderer>().sprite = reactionSprite;
+        yield return new WaitForSeconds(5);
+        _reactionObject.GetComponent<SpriteRenderer>().sprite = null;
+    }
 }

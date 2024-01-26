@@ -12,6 +12,8 @@ public class GameInstaller : MonoInstaller
     [FormerlySerializedAs("_charactersSpritesModel")] [SerializeField]
     private CharactersData _charactersData;
 
+    [SerializeField] private ReactionsModel _reactionsModel;
+
     public override void InstallBindings()
     {
         Container.Bind<IInstancer>().To<Instancer>().AsSingle();
@@ -25,6 +27,7 @@ public class GameInstaller : MonoInstaller
     {
         Container.BindInstance(_cardsData).AsSingle();
         Container.BindInstance(_charactersData).AsSingle();
+        Container.BindInstance(_reactionsModel).AsSingle();
     }
 
     private void InstallServices()

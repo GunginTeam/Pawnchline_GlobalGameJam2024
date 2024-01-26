@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [CreateAssetMenu(menuName = "GunginJokes/CharactersSprites", fileName = "CharactersSprites")]
 public class CharactersData : ScriptableObject
