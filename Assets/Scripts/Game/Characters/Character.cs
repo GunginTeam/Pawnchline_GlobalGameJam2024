@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Character : MonoBehaviour
 {
@@ -22,6 +23,11 @@ public class Character : MonoBehaviour
     public CharacterHumor GetHumor()
     {
         return _humorPreferences;
+    }
+
+    public void ReactToCard(List<HumorType> humorTypes)
+    {
+        
     }
     
     private void PutOnTheHat(CharacterVisualData visualData, HatSprite hatSprite)

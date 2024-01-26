@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
+using Random = UnityEngine.Random;
 
 public class CharactersManager : MonoBehaviour
 {
@@ -11,12 +12,29 @@ public class CharactersManager : MonoBehaviour
     [SerializeField] private float _hatChance;
     
     private CharactersData _charactersData;
+    private IScoreService _scoreService;
 
     [Inject]
-    public void Construct(ICharacterService characterService, CharactersData charactersData)
+    public void Construct(ICharacterService characterService, IScoreService scoreService, CharactersData charactersData)
     {
         characterService.AssignManager(this);
         _charactersData = charactersData;
+        _scoreService = scoreService;
+
+        _scoreService.CardPlayed += OnCardPlayed;
+    }
+
+    public void OnDestroy()
+    {
+        _scoreService.CardPlayed -= OnCardPlayed;
+    }
+
+    private void OnCardPlayed(List<HumorType> humorTypes)
+    {
+        foreach (var character in _characters)
+        {
+            character.ReactToCard(humorTypes);
+        }
     }
 
     public List<CharacterHumor> GetPublicHumor()
