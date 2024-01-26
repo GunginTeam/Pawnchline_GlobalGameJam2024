@@ -1,32 +1,26 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
 
-public class CardsManager : MonoBehaviour
+public class CardsService : ICardsService
 {
-    [Range(5, 10)]
-    [SerializeField] private int _chanceToGetBonusCard = 8;
+    const int _chanceToGetActionCard = 10;
     
-    [SerializeField] private ActionCard _actionCardPrefab;
-
     private Dictionary<ActionCardData, bool> _actionCardsDeck = new();
     private Dictionary<BonusCard, bool> _bonusCardsDeck = new();
 
     private IInstancer _instancer;
     private CardsData _cardsData;
+    private Transform _cardsHolder;
 
     [Inject]
     public void Construct(IInstancer instancer, CardsData cardsData)
     {
         _instancer = instancer;
         _cardsData = cardsData;
-    }
-
-    private void Start()
-    {
+        
         foreach (var cardData in _cardsData.Cards)
         {
             _actionCardsDeck.Add(cardData, true);
@@ -38,6 +32,11 @@ public class CardsManager : MonoBehaviour
         }
     }
 
+    public void SetHolder(Transform holder)
+    {
+        _cardsHolder = holder;
+    }
+    
     public BaseCard GetCard(bool actionCard = false)
     {
         if (actionCard)
@@ -45,7 +44,7 @@ public class CardsManager : MonoBehaviour
             return GetActionCard();
         }
 
-        if (Random.Range(0, 10) >= _chanceToGetBonusCard)
+        if (Random.Range(0, 10) >= _chanceToGetActionCard)
         {
             return GetBonusCard();
         }
@@ -65,15 +64,16 @@ public class CardsManager : MonoBehaviour
             selectedCard = _actionCardsDeck.ElementAt(range);
 
             iteration++;
-            if (iteration > _actionCardsDeck.Count)
+            if (iteration > _actionCardsDeck.Count +1)
             {
                 Debug.LogError("No available ACTION cards");
+                break;
             }
         }
 
         _actionCardsDeck[selectedCard.Key] = false;
 
-        return _instancer.Create<ActionCard>(_actionCardPrefab.gameObject, transform).Initialize(selectedCard.Key);
+        return _instancer.Create<ActionCard>(_cardsData.CardPrefab.gameObject, _cardsHolder).Initialize(selectedCard.Key);
     }
 
     private BaseCard GetBonusCard()
@@ -96,6 +96,6 @@ public class CardsManager : MonoBehaviour
 
         _bonusCardsDeck[selectedCard.Key] = false;
 
-        return _instancer.Create<BonusCard>(selectedCard.Key.gameObject, transform).Initialize();
+        return _instancer.Create<BonusCard>(selectedCard.Key.gameObject, _cardsHolder).Initialize();
     }
 }
