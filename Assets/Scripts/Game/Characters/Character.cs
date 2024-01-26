@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -20,6 +20,16 @@ public class Character : MonoBehaviour
         }
     }
 
+    public CharacterHumor GetHumor()
+    {
+        return _humorPreferences;
+    }
+
+    public void ReactToCard(List<HumorType> humorTypes)
+    {
+        
+    }
+    
     private void PutOnTheHat(CharacterVisualData visualData, HatSprite hatSprite)
     {
         var position = visualData._hatPosition;
@@ -32,14 +42,6 @@ public class Character : MonoBehaviour
 
         _hatObject.GetComponent<SpriteRenderer>().sprite = hatSprite._sprite;
     }
+    
+    
 }
-
-[Serializable]
-public class Humor
-{
-    public HumorType Type;
-    [Range(-2,2)]
-    public int Value;
-}
-
-

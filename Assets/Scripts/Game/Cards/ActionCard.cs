@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Services.Runtime.RemoteVariables;
 using TMPro;
 using UnityEngine;
@@ -25,5 +26,10 @@ public class ActionCard : BaseCard
         _text.text = _remoteVariablesService.GetString(_actionCardData.TextKey);
 
         return this;
+    }
+
+    public List<HumorType> GetCardHumor()
+    {
+        return _actionCardData.HummorTypes;
     }
 }
