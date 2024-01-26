@@ -1,14 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
+[Serializable]
 public class CharacterVisualData
 {
-    public CharacterType Type;
-    [SerializeField]
-    private Sprite _defaultCharacter;
-    [SerializeField]
-    private Vector2 _hatPosition;
-    [SerializeField]
-    private Sprite _happyCharacter;
-    [SerializeField]
-    private Sprite _angryCharacter;
+    public CharacterType _type;
+    public  Sprite _defaultCharacter;
+    public Vector2 _hatPosition;
+    public Sprite _happyCharacter;
+    public Sprite _angryCharacter;
 }

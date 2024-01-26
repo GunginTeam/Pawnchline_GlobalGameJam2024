@@ -12,3 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20d1b3b51b54af6ae555201920564ef, type: 3}
   m_Name: CharacterSprites
   m_EditorClassIdentifier: 
+  _characterSprites:
+  - Type: 0
+    _defaultCharacter: {fileID: -1278059773, guid: 3698aa2bf8ae0d94fa914a6306d631d2, type: 3}
+    _hatPosition: {x: 0, y: 0}
+    _happyCharacter: {fileID: 0}
+    _angryCharacter: {fileID: 0}
+  - Type: 1
+    _defaultCharacter: {fileID: -316856496, guid: 3698aa2bf8ae0d94fa914a6306d631d2, type: 3}
+    _hatPosition: {x: 0, y: 0}
+    _happyCharacter: {fileID: 0}
+    _angryCharacter: {fileID: 0}
+  - Type: 2
+    _defaultCharacter: {fileID: -275196949, guid: 3698aa2bf8ae0d94fa914a6306d631d2, type: 3}
+    _hatPosition: {x: 0, y: 0}
+    _happyCharacter: {fileID: 0}
+    _angryCharacter: {fileID: 0}
+  - Type: 3
+    _defaultCharacter: {fileID: 812337312, guid: 3698aa2bf8ae0d94fa914a6306d631d2, type: 3}
+    _hatPosition: {x: 0, y: 0}
+    _happyCharacter: {fileID: 0}
+    _angryCharacter: {fileID: 0}
+  _hatSprites: []

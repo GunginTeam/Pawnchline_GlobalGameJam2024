@@ -1,34 +1,32 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 public class CharactersManager : MonoBehaviour
 {
-    [SerializeField] private Character _characterPrefab;
-    [SerializeField] private List<Transform> _characterPositions;
-
-    private IInstancer _instancer;
+    [FormerlySerializedAs("_characterPositions")] [SerializeField] private List<Character> _characters;
+    
     private CharactersSpritesModel _charactersSpritesModel;
 
     [Inject]
-    public void Construct(IInstancer instancer, CharactersSpritesModel charactersSpritesModel)
+    public void Construct(CharactersSpritesModel charactersSpritesModel)
     {
-        _instancer = instancer;
         _charactersSpritesModel = charactersSpritesModel;
     }
 
     private void Start()
     {
-        foreach (var position in _characterPositions)
+        foreach (var character in _characters)
         {
             var visualData = GetCharacterSpriteData();
-            _instancer.Create<Character>(_characterPrefab.gameObject, position).Initialize(visualData);
+            character.Initialize(visualData);
         }
     }
 
     private CharacterVisualData GetCharacterSpriteData()
     {
-        var animalType = (CharacterType)Random.Range(0, 5);
+        var animalType = (CharacterType)Random.Range(0, 4);
         return _charactersSpritesModel.GetCharacterVisualData(animalType);
     }
 }

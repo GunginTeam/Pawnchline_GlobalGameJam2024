@@ -11,6 +11,6 @@ public class CharactersSpritesModel : ScriptableObject
 
     public CharacterVisualData GetCharacterVisualData(CharacterType type)
     {
-        return _characterSprites.Find(item => item.Type == type);
+        return _characterSprites.Find(item => item._type == type);
     }
 }
