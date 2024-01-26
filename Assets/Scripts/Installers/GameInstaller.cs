@@ -7,6 +7,7 @@ using Zenject;
 public class GameInstaller : MonoInstaller
 {
     [SerializeField] private CardsData _cardsData;
+    [SerializeField] private CardsData _charactersSprites;
     
     public override void InstallBindings()
     {
@@ -19,8 +20,8 @@ public class GameInstaller : MonoInstaller
 
     private void InstallModels()
     {
-        Container.BindInstance(_cardsData)
-            .AsSingle();
+        Container.BindInstance(_cardsData).AsSingle();
+        Container.BindInstance(_charactersSprites).AsSingle();
     }
 
     private void InstallServices()
