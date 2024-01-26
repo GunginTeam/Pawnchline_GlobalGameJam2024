@@ -15,22 +15,24 @@ MonoBehaviour:
   _characterSprites:
   - _type: 0
     _defaultCharacter: {fileID: -1278059773, guid: 3698aa2bf8ae0d94fa914a6306d631d2, type: 3}
-    _hatPosition: {x: 0, y: 0}
+    _hatPosition: {x: 2.8, y: 3.7}
     _happyCharacter: {fileID: 0}
     _angryCharacter: {fileID: 0}
   - _type: 1
     _defaultCharacter: {fileID: -316856496, guid: 3698aa2bf8ae0d94fa914a6306d631d2, type: 3}
-    _hatPosition: {x: 0, y: 0}
+    _hatPosition: {x: 2.8, y: 4.2}
     _happyCharacter: {fileID: 0}
     _angryCharacter: {fileID: 0}
   - _type: 2
     _defaultCharacter: {fileID: -275196949, guid: 3698aa2bf8ae0d94fa914a6306d631d2, type: 3}
-    _hatPosition: {x: 0, y: 0}
+    _hatPosition: {x: 1.75, y: 2.4}
     _happyCharacter: {fileID: 0}
     _angryCharacter: {fileID: 0}
   - _type: 3
     _defaultCharacter: {fileID: 812337312, guid: 3698aa2bf8ae0d94fa914a6306d631d2, type: 3}
-    _hatPosition: {x: 0, y: 0}
+    _hatPosition: {x: 1.95, y: 2.8}
     _happyCharacter: {fileID: 0}
     _angryCharacter: {fileID: 0}
-  _hatSprites: []
+  _hatSprites:
+  - _sprite: {fileID: 21300000, guid: 87b48a3970067e144bdfe5014358bff3, type: 3}
+  _humorSet: {fileID: 11400000, guid: 33cbd39f8132ad7468d00ea8c0f768bb, type: 2}
