@@ -16,8 +16,8 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private bool _isDragging;
     
     private bool _isConsumed;
-    
-    public void Consume()
+
+    public void Consume(Action onComplete = null)
     {
         _isConsumed = true;
         
@@ -25,6 +25,7 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _container.DORotate(Vector3.forward * 500, 0.5f).SetRelative().OnComplete(() =>
         {
             Destroy(gameObject);
+            onComplete?.Invoke();
         });
     }
     

@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
@@ -47,6 +48,7 @@ public class PlayerHand : MonoBehaviour
     private void SetCurrentCard(BaseCard card)
     {
         _currentCard = card;
+        HideHand(true);
     }
 
     private void CheckUsePreviousCard()
@@ -60,9 +62,13 @@ public class PlayerHand : MonoBehaviour
                 _currentActionCards--;
             }
 
-            _currentCard.Consume();
+            _currentCard.Consume(()=> HideHand(false));
 
             FetchCard(_currentActionCards == 0);
+        }
+        else
+        {
+            HideHand(false);
         }
 
         _currentCard = null;
@@ -74,5 +80,10 @@ public class PlayerHand : MonoBehaviour
         card.SetOnSelectCard(SetCurrentCard, CheckUsePreviousCard);
 
         return card;
+    }
+
+    private void HideHand(bool hide)
+    {
+        transform.DOLocalMoveY(hide ? -100 : 0, 0.25f);
     }
 }
