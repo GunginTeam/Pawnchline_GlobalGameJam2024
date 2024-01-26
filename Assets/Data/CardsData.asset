@@ -24,5 +24,17 @@ MonoBehaviour:
     HummorTypes: 00000000
   - TextKey: CARD_TEXT_4
     HummorTypes: 00000000
+  - TextKey: CARD_TEXT_5
+    HummorTypes: 00000000
+  - TextKey: CARD_TEXT_6
+    HummorTypes: 00000000
+  - TextKey: CARD_TEXT_7
+    HummorTypes: 00000000
+  - TextKey: CARD_TEXT_8
+    HummorTypes: 00000000
+  - TextKey: CARD_TEXT_9
+    HummorTypes: 00000000
+  - TextKey: CARD_TEXT_10
+    HummorTypes: 00000000
   BonusCards:
   - {fileID: 7304111848577325236, guid: 35414cb212155407e8d51ebdb0ccc63c, type: 3}
