@@ -6,4 +6,9 @@ public class BonusCard : BaseCard
 
         return this;
     }
+
+    protected override void OnConsume()
+    {
+        
+    }
 }

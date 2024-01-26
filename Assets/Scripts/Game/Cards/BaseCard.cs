@@ -3,7 +3,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
+public abstract class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
     public bool IsAction { get; protected set; }
     
@@ -17,6 +17,7 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     
     private bool _isConsumed;
 
+    protected abstract void OnConsume();
     public void Consume(Action onComplete = null)
     {
         _isConsumed = true;
@@ -34,6 +35,7 @@ public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _onSelected = onSelected;
         _onDisSelected = onDisSelected;
     }
+    
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (_isHighlighted || _isConsumed)

@@ -34,4 +34,9 @@ public class ActionCard : BaseCard
     {
         return _actionCardData.HummorTypes;
     }
+
+    protected override void OnConsume()
+    {
+        //Call the Service
+    }
 }
