@@ -37,9 +37,9 @@ public class CardsService : ICardsService
         _cardsHolder = holder;
     }
     
-    public BaseCard GetCard(bool actionCard = false)
+    public BaseCard GetCard(bool forceActionCard = false)
     {
-        if (actionCard)
+        if (forceActionCard)
         {
             return GetActionCard();
         }

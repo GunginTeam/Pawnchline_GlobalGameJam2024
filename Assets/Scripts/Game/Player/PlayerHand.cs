@@ -6,15 +6,17 @@ public class PlayerHand : MonoBehaviour
 {
     [SerializeField] private Transform _cardsHolder;
     [SerializeField] private Transform _cardsUsePosition;
-    
+
     private BaseCard _currentCard;
 
     private ICardsService _cardsService;
 
     const int _cardUseRange = 50;
-    
+
     const int _initialCards = 5;
-    const int _initialForcedBaseCards = 3;
+    const int _initialForcedActionCards = 3;
+
+    private int _currentActionCards;
 
     [Inject]
     public void Construct(ICardsService cardsService)
@@ -23,21 +25,22 @@ public class PlayerHand : MonoBehaviour
 
         _cardsService.SetHolder(_cardsHolder);
     }
-    
-    private void Update()
+
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GetInitialTurnHand();
-        }
+        GetInitialTurnHand();
     }
 
     private void GetInitialTurnHand()
     {
         for (var index = 0; index < _initialCards; index++)
         {
-            _cardsService.GetCard(index < _initialForcedBaseCards)
-                .SetOnSelectCard(SetCurrentCard, CheckUsePreviousCard);
+            var forceActionCard = index < _initialForcedActionCards;
+
+            if (FetchCard(forceActionCard).IsAction)
+            {
+                _currentActionCards++;
+            }
         }
     }
 
@@ -49,12 +52,27 @@ public class PlayerHand : MonoBehaviour
     private void CheckUsePreviousCard()
     {
         var distance = Vector2.Distance(Input.mousePosition, _cardsUsePosition.position);
-        
+
         if (distance <= _cardUseRange)
         {
+            if (_currentCard.IsAction)
+            {
+                _currentActionCards--;
+            }
+
             _currentCard.Consume();
+
+            FetchCard(_currentActionCards == 0);
         }
 
         _currentCard = null;
+    }
+
+    private BaseCard FetchCard(bool forceActionCard)
+    {
+        var card = _cardsService.GetCard(forceActionCard);
+        card.SetOnSelectCard(SetCurrentCard, CheckUsePreviousCard);
+
+        return card;
     }
 }

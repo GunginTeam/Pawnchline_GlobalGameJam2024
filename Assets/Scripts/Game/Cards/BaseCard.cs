@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
+    public bool IsAction { get; protected set; }
+    
     [SerializeField] private Transform _container;
 
     private Action<BaseCard> _onSelected;

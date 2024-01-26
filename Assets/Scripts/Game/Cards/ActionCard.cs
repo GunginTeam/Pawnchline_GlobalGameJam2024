@@ -20,6 +20,8 @@ public class ActionCard : BaseCard
     
     public ActionCard Initialize(ActionCardData data)
     {
+        IsAction = true;
+        
         _actionCardData = data;
 
         gameObject.name = _actionCardData.TextKey;
