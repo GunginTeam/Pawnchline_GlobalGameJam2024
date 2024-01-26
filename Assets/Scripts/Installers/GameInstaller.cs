@@ -2,12 +2,13 @@ using System;
 using Services.Runtime.AudioService;
 using Services.Runtime.RemoteVariables;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 public class GameInstaller : MonoInstaller
 {
     [SerializeField] private CardsData _cardsData;
-    [SerializeField] private CardsData _charactersSprites;
+    [SerializeField] private CharactersSpritesModel _charactersSpritesModel;
     
     public override void InstallBindings()
     {
@@ -21,7 +22,7 @@ public class GameInstaller : MonoInstaller
     private void InstallModels()
     {
         Container.BindInstance(_cardsData).AsSingle();
-        Container.BindInstance(_charactersSprites).AsSingle();
+        Container.BindInstance(_charactersSpritesModel).AsSingle();
     }
 
     private void InstallServices()

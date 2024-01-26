@@ -2,6 +2,7 @@
 
 public class CharacterVisualData
 {
+    public CharacterType Type;
     [SerializeField]
     private Sprite _defaultCharacter;
     [SerializeField]
