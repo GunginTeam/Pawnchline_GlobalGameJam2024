@@ -5,9 +5,20 @@ using Zenject;
 public class CardsManager : MonoBehaviour
 {
     [SerializeField] private Card _cardPrefab;
+
+    private IInstancer _instancer;
+    private CardsData _cardsData;
+    
     [Inject]
-    public void Contruct(CardsData cardsData)
+    public void Construct(IInstancer instancer, CardsData cardsData)
     {
-        Instantiate(_cardPrefab).Initialize(cardsData.Cards.First());
+        _instancer = instancer;
+        _cardsData = cardsData;
+    }
+
+    private void Start()
+    {
+        var firstOrDefault = _cardsData.Cards.FirstOrDefault();
+        _instancer.Create<Card>(_cardPrefab.gameObject, transform).Initialize(firstOrDefault);
     }
 }

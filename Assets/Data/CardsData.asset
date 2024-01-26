@@ -15,3 +15,5 @@ MonoBehaviour:
   Cards:
   - TextKey: CARD_TEXT_0
     HummorTypes: 0000000001000000
+  - TextKey: CARD_TEXT_1
+    HummorTypes: 00000000
