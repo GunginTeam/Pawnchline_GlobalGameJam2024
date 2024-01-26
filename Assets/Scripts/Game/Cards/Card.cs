@@ -9,7 +9,7 @@ public class Card : MonoBehaviour
 
     private IRemoteVariablesService _remoteVariablesService;
     
-    private CardData _data;
+    private CardData _cardData;
 
     [Inject]
     public void Construct(IRemoteVariablesService remoteVariablesService)
@@ -19,8 +19,8 @@ public class Card : MonoBehaviour
     
     public void Initialize(CardData data)
     {
-        _data = data;
+        _cardData = data;
 
-        _text.text = _remoteVariablesService.GetString(_data.TextKey);
+        _text.text = _remoteVariablesService.GetString(_cardData.TextKey);
     }
 }
