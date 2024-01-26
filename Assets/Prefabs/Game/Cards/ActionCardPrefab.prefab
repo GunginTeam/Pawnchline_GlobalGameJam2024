@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 367187289702475287, guid: 394df8cce96a8426dadeb53e205408b8, type: 3}
       propertyPath: m_Name
-      value: BaseCardPrefab
+      value: ActionCardPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 367187289702475288, guid: 394df8cce96a8426dadeb53e205408b8, type: 3}
       propertyPath: m_Pivot.x
@@ -125,4 +125,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6de8eaaaf9dc41dc8413cc626bfb37a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _container: {fileID: 3150521212611704345}
   _text: {fileID: 3116714907663889636}
+--- !u!224 &3150521212611704345 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 423530842158615386, guid: 394df8cce96a8426dadeb53e205408b8, type: 3}
+  m_PrefabInstance: {fileID: 3339499763069680963}
+  m_PrefabAsset: {fileID: 0}
