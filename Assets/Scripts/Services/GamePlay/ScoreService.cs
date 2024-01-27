@@ -8,4 +8,14 @@ public class ScoreService : IScoreService
     {
         ActionCardPlayed?.Invoke(cardHumor);
     }
+
+    public void SetScoreMultiplier(float multiplier)
+    {
+        
+    }
+
+    public void SetReactionScore(int score)
+    {
+        
+    }
 }

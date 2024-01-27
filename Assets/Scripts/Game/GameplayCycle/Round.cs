@@ -25,8 +25,8 @@ public class Session : MonoBehaviour
     private void StartRound()
     {
         _currentRound = new Round(_scoreService);
-        _currentRound.StartTurn();
         _currentRound.SetOnCompleteCallback(EndRound);
+        _currentRound.StartTurn();
     }
 
     private void EndRound()
@@ -35,7 +35,7 @@ public class Session : MonoBehaviour
 
         if (_currentRoundIndex >= _amountOfRounds)
         {
-            //GameOver
+            //Game Over
             return;
         }
 
@@ -48,12 +48,13 @@ public class Round
     const float _initialTurnMultiplier = 0.75f;
     const float _bodyTurnMultiplier = 1f;
     const float _punchTurnMultiplier = 1.25f;
-    
+    const int _amountOfTurns = 3;
+
     private IScoreService _scoreService;
 
-    private Action _onComplete;
+    public Turn CurrentTurn;
 
-    private Turn CurrentTurn;
+    private Action _onComplete;
 
     private int _currentTurnIndex;
     
@@ -61,7 +62,7 @@ public class Round
     {
         _scoreService = scoreService;
     }
-
+    
     public void SetOnCompleteCallback(Action onComplete)
     {
         _onComplete = onComplete;
@@ -69,9 +70,21 @@ public class Round
 
     public void StartTurn()
     {
-        CurrentTurn = new Turn(GetMultiplierFromTurnIndex());
-        
+        CurrentTurn = new Turn(GetMultiplierFromTurnIndex(), _scoreService);
+        CurrentTurn.SetOnCompleteCallback(EndTurn);
+    }
+
+    private void EndTurn()
+    {
         _currentTurnIndex++;
+
+        if (_currentTurnIndex >= _amountOfTurns)
+        {
+            _onComplete.Invoke();
+            return;
+        }
+
+        StartTurn();
     }
 
     private float GetMultiplierFromTurnIndex()
@@ -87,10 +100,32 @@ public class Round
 
 public class Turn
 {
-    private float _scoreMultiplier;
+    private IScoreService _scoreService;
     
-    public Turn(float scoreMultiplier)
+    private float _scoreMultiplier;
+    private bool _bonusActionUsed;
+    
+    private Action _onComplete;
+    
+    public Turn(float scoreMultiplier, IScoreService scoreService)
     {
         _scoreMultiplier = scoreMultiplier;
+        _scoreService = scoreService;
+        
+        _scoreService.ActionCardPlayed += _ => OnActionCardSelected();
+    }
+
+    public void SetOnCompleteCallback(Action onComplete)
+    {
+        _onComplete = onComplete;
+    }
+
+    public bool CanUseBonusCard() => !_bonusActionUsed;
+    public void OnBonusCardSelected() => _bonusActionUsed = true;
+
+    private void OnActionCardSelected()
+    {
+        _onComplete?.Invoke();
+        _scoreService.SetScoreMultiplier(_scoreMultiplier);
     }
 }
