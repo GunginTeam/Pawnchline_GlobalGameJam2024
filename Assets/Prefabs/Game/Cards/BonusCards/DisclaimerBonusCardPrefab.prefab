@@ -97,9 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8665635071884690430, guid: 35414cb212155407e8d51ebdb0ccc63c, type: 3}
       propertyPath: m_text
-      value: 'Use a disclaimer
-
-        to soften the joke'
+      value: Sample
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35414cb212155407e8d51ebdb0ccc63c, type: 3}
@@ -121,7 +119,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _container: {fileID: 7701759662760086808}
+  _cardText: {fileID: 7645432595656380389}
+  _textKey: BONUS_CARD_TEXT_1
   _multiplier: 0.5
+--- !u!114 &7645432595656380389 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8665635071884690430, guid: 35414cb212155407e8d51ebdb0ccc63c, type: 3}
+  m_PrefabInstance: {fileID: 1321961930710060059}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7701759662760086808 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8699451193118638339, guid: 35414cb212155407e8d51ebdb0ccc63c, type: 3}

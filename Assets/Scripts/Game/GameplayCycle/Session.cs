@@ -29,8 +29,6 @@ public class Session : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log($"Session STARTED");
-
         StartRound();
     }
 
