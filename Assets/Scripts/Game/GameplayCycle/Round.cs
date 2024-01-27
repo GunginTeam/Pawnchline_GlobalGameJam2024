@@ -2,16 +2,17 @@ using System;
 
 public class Round
 {
-    const float _initialTurnMultiplier = 0.75f;
-    const float _bodyTurnMultiplier = 1f;
-    const float _punchTurnMultiplier = 1.25f;
-    const int _amountOfTurns = 3;
+    const float InitialTurnMultiplier = 0.75f;
+    const float BodyTurnMultiplier = 1f;
+    const float PunchTurnMultiplier = 1.25f;
+    const int AmountOfTurns = 3;
 
     private IScoreService _scoreService;
 
     public Turn CurrentTurn;
 
-    private Action _onComplete;
+    private Action _onRoundComplete;
+    private Action<int> _onTurnComplete;
 
     private int _currentTurnIndex;
     
@@ -20,9 +21,10 @@ public class Round
         _scoreService = scoreService;
     }
     
-    public void SetOnCompleteCallback(Action onComplete)
+    public void SetOnCompleteCallback(Action onRoundComplete, Action<int> onTurnComplete)
     {
-        _onComplete = onComplete;
+        _onRoundComplete = onRoundComplete;
+        _onTurnComplete = onTurnComplete;
     }
 
     public void StartTurn()
@@ -34,12 +36,13 @@ public class Round
     private void EndTurn()
     {
         CurrentTurn.Dispose();
-        
-        _currentTurnIndex++;
+        _onTurnComplete(_currentTurnIndex);
 
-        if (_currentTurnIndex >= _amountOfTurns)
+        _currentTurnIndex++;
+        
+        if (_currentTurnIndex >= AmountOfTurns)
         {
-            _onComplete.Invoke();
+            _onRoundComplete.Invoke();
             return;
         }
 
@@ -50,9 +53,9 @@ public class Round
     {
         return _currentTurnIndex switch
         {
-            1 => _bodyTurnMultiplier,
-            2 => _punchTurnMultiplier,
-            _ => _initialTurnMultiplier
+            1 => BodyTurnMultiplier,
+            2 => PunchTurnMultiplier,
+            _ => InitialTurnMultiplier
         };
     }
 }

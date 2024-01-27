@@ -87,3 +87,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cardsHolder: {fileID: 5274280892016453636}
+  _cardsUsePosition: {fileID: 0}

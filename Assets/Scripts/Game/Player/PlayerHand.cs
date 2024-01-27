@@ -5,6 +5,10 @@ using Zenject;
 
 public class PlayerHand : MonoBehaviour
 {
+    const int CardUseRange = 50;
+    const int InitialCards = 5;
+    const int InitialForcedActionCards = 3;
+
     [SerializeField] private Transform _cardsHolder;
     [SerializeField] private Transform _cardsUsePosition;
 
@@ -15,10 +19,7 @@ public class PlayerHand : MonoBehaviour
 
     private ICardsService _cardsService;
 
-    const int _cardUseRange = 50;
-
-    const int _initialCards = 5;
-    const int _initialForcedActionCards = 3;
+    private int _currentTurn;
 
     private int _currentActionCards;
 
@@ -48,9 +49,9 @@ public class PlayerHand : MonoBehaviour
 
     private void GetInitialTurnHand()
     {
-        for (var index = 0; index < _initialCards; index++)
+        for (var index = 0; index < InitialCards; index++)
         {
-            var forceActionCard = index < _initialForcedActionCards;
+            var forceActionCard = index < InitialForcedActionCards;
 
             if (FetchCard(forceActionCard).IsAction)
             {
@@ -69,7 +70,7 @@ public class PlayerHand : MonoBehaviour
     {
         var distance = Vector2.Distance(Input.mousePosition, _cardsUsePosition.position);
 
-        if (distance <= _cardUseRange)
+        if (distance <= CardUseRange)
         {
             if (_currentCard.IsAction)
             {
@@ -92,17 +93,20 @@ public class PlayerHand : MonoBehaviour
             _handCards.Remove(_currentCard);
             _currentCard.Consume(isActionCard =>
             {
-                if (isActionCard)
+                if (_currentTurn < 3)
                 {
-                    Invoke(nameof(DelayedShowHand), 4);
-                }
-                else
-                {
-                    HideHand(false);
+                    if (isActionCard)
+                    {
+                        Invoke(nameof(DelayedShowHand), 4);
+                    }
+                    else
+                    {
+                        HideHand(false);
+                    }
                 }
             });
 
-            if (_handCards.Count < _initialCards)
+            if (_handCards.Count < InitialCards)
             {
                 FetchCard(_currentActionCards == 0);
             }
@@ -131,8 +135,10 @@ public class PlayerHand : MonoBehaviour
         transform.DOLocalMoveY(hide ? -100 : 0, 0.25f);
     }
 
-    private void DiscardHand()
+    private void DiscardHand(int currentTurn)
     {
+        _currentTurn = currentTurn;
+
         foreach (var card in _handCards)
         {
             Destroy(card.gameObject);
