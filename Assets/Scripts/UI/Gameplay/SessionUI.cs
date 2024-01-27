@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -10,11 +9,11 @@ public class SessionUI : MonoBehaviour
     [SerializeField] private TMP_Text _roundText;
 
     [SerializeField] private Image _laughFiller;
-    [SerializeField] private Transform _bonusActionUse;
+    [SerializeField] private Image _bonusActionUse;
 
-    [SerializeField] private GameObject _openerTurnShownDebug;
-    [SerializeField] private GameObject _bodyTurnShownDebug;
-    [SerializeField] private GameObject _punchTurnShownDebug;
+    [SerializeField] private Image _openerTurnShownDebug;
+    [SerializeField] private Image _bodyTurnShownDebug;
+    [SerializeField] private Image _punchTurnShownDebug;
 
     private Session _session;
     private IScoreService _scoreService;
@@ -64,11 +63,11 @@ public class SessionUI : MonoBehaviour
 
     private void SetTurnShown(int turnIndex)
     {
-        _openerTurnShownDebug.SetActive(turnIndex >= 0);
-        _bodyTurnShownDebug.SetActive(turnIndex >= 1);
-        _punchTurnShownDebug.SetActive(turnIndex >= 2);
-        
-        if(_bonusActionUse.localScale == Vector3.zero)
+        _punchTurnShownDebug.DOFade(turnIndex >= 2 ? 1 : 0, 0.25f);
+        _bodyTurnShownDebug.DOFade(turnIndex >= 1 ? 1 : 0, 0.25f);
+        _openerTurnShownDebug.DOFade(turnIndex >= 0 ? 1 : 0, 0.25f);
+
+        if (_bonusActionUse.color.a == 0)
         {
             Invoke(nameof(ActivateBonusActionView), 4);
         }
@@ -76,14 +75,14 @@ public class SessionUI : MonoBehaviour
 
     private void UpdateBonusActionUseDisplay()
     {
-        _bonusActionUse.DOScale(0, 0.25f);
+        _bonusActionUse.DOFade(0, 0.25f);
     }
 
     private void ActivateBonusActionView()
     {
-        _bonusActionUse.DOScale(1, 0.25f);
+        _bonusActionUse.DOFade(1, 0.25f);
     }
-    
+
     private void ResetUI()
     {
         ApplyRoundTextUpdate();

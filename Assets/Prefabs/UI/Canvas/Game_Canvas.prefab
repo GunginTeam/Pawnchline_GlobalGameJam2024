@@ -173,7 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6936743875574891397, guid: c88e1bfe26ad74a57b4a073150f2d552, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6936743875574891397, guid: c88e1bfe26ad74a57b4a073150f2d552, type: 3}
       propertyPath: m_AnchorMax.x
@@ -271,10 +271,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8644428834803260642, guid: c88e1bfe26ad74a57b4a073150f2d552, type: 3}
-      propertyPath: m_fontSize
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c88e1bfe26ad74a57b4a073150f2d552, type: 3}
 --- !u!224 &1959637307531733143 stripped
@@ -303,7 +299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4865212236911263454, guid: aa646fa86826d4c80b0c8e808118b689, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4865212236911263454, guid: aa646fa86826d4c80b0c8e808118b689, type: 3}
       propertyPath: m_AnchorMax.x
