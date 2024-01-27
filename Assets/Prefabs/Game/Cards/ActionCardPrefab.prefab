@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: -10, y: 35}
+  m_SizeDelta: {x: -10, y: 40}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &6641813306042512719
 MonoBehaviour:
@@ -56,7 +56,7 @@ MonoBehaviour:
     m_Top: 3
     m_Bottom: 3
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: -20
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -183,6 +183,14 @@ PrefabInstance:
       propertyPath: m_PixelsPerUnitMultiplier
       value: 4.5
       objectReference: {fileID: 0}
+    - target: {fileID: 367187291170179494, guid: 394df8cce96a8426dadeb53e205408b8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 367187291170179494, guid: 394df8cce96a8426dadeb53e205408b8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25
+      objectReference: {fileID: 0}
     - target: {fileID: 367187291170179495, guid: 394df8cce96a8426dadeb53e205408b8, type: 3}
       propertyPath: m_text
       value: Sample Card TextSample Card TextSample Card TextSample Card TextSample
@@ -190,15 +198,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 367187291170179495, guid: 394df8cce96a8426dadeb53e205408b8, type: 3}
       propertyPath: m_fontSize
-      value: 14.15
+      value: 12.1
       objectReference: {fileID: 0}
     - target: {fileID: 367187291170179495, guid: 394df8cce96a8426dadeb53e205408b8, type: 3}
       propertyPath: m_margin.w
-      value: 16.303833
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 367187291170179495, guid: 394df8cce96a8426dadeb53e205408b8, type: 3}
       propertyPath: m_margin.y
-      value: 16.304138
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 367187291170179495, guid: 394df8cce96a8426dadeb53e205408b8, type: 3}
       propertyPath: m_margin.z
@@ -235,6 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _container: {fileID: 3150521212611704345}
+  _sortingGroup: {fileID: 0}
   _humorIconPrefab: {fileID: 7695564254175057650, guid: adadef2f815164c8e915c033e11e91cd, type: 3}
   _humorIconHolder: {fileID: 754218143328783165}
   _text: {fileID: 3116714907663889636}

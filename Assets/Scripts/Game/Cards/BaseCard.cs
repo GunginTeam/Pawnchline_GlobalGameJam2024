@@ -9,7 +9,7 @@ public abstract class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerEx
     public bool IsAction { get; protected set; }
     
     [SerializeField] private Transform _container;
-    [SerializeField] private SortingGroup _sortingGroup;
+    [SerializeField] private Canvas _canvas;
 
     private Action<BaseCard> _onSelected;
     private Action _onDisSelected;
@@ -87,7 +87,7 @@ public abstract class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerEx
     
     private void Start()
     {
-        _sortingGroup = GetComponent<SortingGroup>();
+        _canvas = GetComponent<Canvas>();
     }
 
     private void Update()
@@ -102,7 +102,7 @@ public abstract class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerEx
     {
         _isHighlighted = highlight;
 
-        _sortingGroup.sortingOrder = highlight ? 1 : 0;
+        _canvas.sortingOrder = highlight ? 11 : 10;
         
         _container.DOLocalMoveY(_isHighlighted ? 60 : 0, 0.25f);
         _container.DOScale(_isHighlighted ? 1.15f : 1, 0.25f);
