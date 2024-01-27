@@ -8,6 +8,7 @@ public class Session : MonoBehaviour
 
     public event Action<int> OnRoundOver;
     public event Action<int> OnTurnOver;
+    public event Action OnBonusActionUsedEvent;
 
     private IScoreService _scoreService;
     
@@ -33,10 +34,15 @@ public class Session : MonoBehaviour
     private void StartRound()
     {
         _currentRound = new Round(_scoreService);
-        _currentRound.SetOnCompleteCallback(EndRound, EndTurn);
+        _currentRound.SetOnCompleteCallback(EndRound, EndTurn, OnBonusActionUsed);
         _currentRound.StartTurn();
     }
 
+    private void OnBonusActionUsed()
+    {
+        OnBonusActionUsedEvent.Invoke();
+    }
+    
     private void EndTurn(int turnIndex)
     {
         OnTurnOver.Invoke(turnIndex);
