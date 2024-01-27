@@ -7,7 +7,7 @@ public class Turn
     
     private float _scoreMultiplier;
     private bool _bonusActionUsed;
-    
+
     private Action _onComplete;
     
     public Turn(float scoreMultiplier, IScoreService scoreService)
