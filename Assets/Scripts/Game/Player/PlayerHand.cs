@@ -8,6 +8,7 @@ public class PlayerHand : MonoBehaviour
     [SerializeField] private Transform _cardsHolder;
     [SerializeField] private Transform _cardsUsePosition;
 
+    private Session _currentSession;
     private BaseCard _currentCard;
 
     private ICardsService _cardsService;
@@ -27,6 +28,11 @@ public class PlayerHand : MonoBehaviour
         _cardsService.SetHolder(_cardsHolder);
     }
 
+    private void Awake()
+    {
+        _currentSession = FindObjectOfType<Session>();
+    }
+
     private void Start()
     {
         GetInitialTurnHand();
@@ -34,6 +40,11 @@ public class PlayerHand : MonoBehaviour
 
     private void GetInitialTurnHand()
     {
+        var card = _cardsService.GetBonusCardThis();
+        card.SetOnSelectCard(SetCurrentCard, CheckUsePreviousCard);
+        var cardb = _cardsService.GetBonusCardThis();
+        cardb.SetOnSelectCard(SetCurrentCard, CheckUsePreviousCard);
+        
         for (var index = 0; index < _initialCards; index++)
         {
             var forceActionCard = index < _initialForcedActionCards;
@@ -60,6 +71,19 @@ public class PlayerHand : MonoBehaviour
             if (_currentCard.IsAction)
             {
                 _currentActionCards--;
+            }
+            else
+            {
+                var currentTurn = _currentSession.GetCurrentTurn();
+                if (currentTurn.CanUseBonusCard())
+                {
+                    currentTurn.OnBonusCardSelected();
+                }
+                else
+                {
+                    HideHand(false);
+                    return;
+                }
             }
 
             _currentCard.Consume(()=> HideHand(false));

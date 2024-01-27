@@ -51,6 +51,8 @@ public class CardsService : ICardsService
 
         return GetActionCard();
     }
+    
+    public BaseCard GetBonusCardThis() => GetBonusCard();
 
     private BaseCard GetActionCard()
     {

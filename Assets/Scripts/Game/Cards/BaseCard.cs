@@ -18,6 +18,7 @@ public abstract class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerEx
     private bool _isConsumed;
 
     protected abstract void OnConsume();
+    
     public void Consume(Action onComplete = null)
     {
         OnConsume();

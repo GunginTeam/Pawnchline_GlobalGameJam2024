@@ -6,15 +6,18 @@ public class Session : MonoBehaviour
     private const int _amountOfRounds = 3;
 
     private IScoreService _scoreService;
+    
+    private Round _currentRound;
 
     private int _currentRoundIndex;
-    private Round _currentRound;
 
     [Inject]
     public void Construct(IScoreService scoreService)
     {
         _scoreService = scoreService;
     }
+
+    public Turn GetCurrentTurn() => _currentRound.CurrentTurn;
 
     private void Start()
     {
