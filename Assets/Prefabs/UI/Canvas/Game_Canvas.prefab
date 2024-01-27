@@ -599,6 +599,7 @@ MonoBehaviour:
   _sceneTransition: {fileID: 5744416028838302896}
   _settingsButton: {fileID: 7046704931829825116}
   _settingsPopUp: {fileID: 2990307612326122569, guid: 93a070460c5b74c059634a4fe36c1f4b, type: 3}
+  _gameOverPopUp: {fileID: 8359937555813431851, guid: c1eabbc253c5c4f3a966f506d8df0ab7, type: 3}
 --- !u!114 &5744416028838302896 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3825308398322965775, guid: c530d5667cf53f446aea46299b4ec323, type: 3}

@@ -1,4 +1,5 @@
 using System;
+using UI.Canvas;
 using UnityEngine;
 using Zenject;
 
@@ -9,6 +10,8 @@ public class Session : MonoBehaviour
     public event Action<int> OnRoundOver;
     public event Action<int> OnTurnOver;
     public event Action OnBonusActionUsedEvent;
+    
+    [SerializeField] private GameCanvas _gameCanvas;
 
     private IScoreService _scoreService;
     
@@ -55,10 +58,12 @@ public class Session : MonoBehaviour
 
         if (_currentRoundIndex >= AmountOfRounds)
         {
-            Debug.Log("SESSION OVER");
+            Invoke(nameof(OpenGameOverPopUp), 4);
             return;
         }
 
         StartRound();
     }
+
+    private void OpenGameOverPopUp() => _gameCanvas.HandleGameOver();
 }
