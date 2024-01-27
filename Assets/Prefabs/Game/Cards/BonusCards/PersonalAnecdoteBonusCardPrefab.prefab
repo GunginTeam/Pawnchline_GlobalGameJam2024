@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4546333725926362551, guid: 35414cb212155407e8d51ebdb0ccc63c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1675797870, guid: ee2351230b2e24ac8a7c065f9d627fd3, type: 3}
     - target: {fileID: 8665635070664977473, guid: 35414cb212155407e8d51ebdb0ccc63c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -93,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8665635071884690430, guid: 35414cb212155407e8d51ebdb0ccc63c, type: 3}
       propertyPath: m_fontSize
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35414cb212155407e8d51ebdb0ccc63c, type: 3}
@@ -131,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _container: {fileID: 5404709700273050096}
+  _canvas: {fileID: 0}
   _cardText: {fileID: 5474493947748799245}
   _textKey: BONUS_CARD_TEXT_2
   _multiplier: 1.5
