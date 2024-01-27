@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 [Serializable]
 public class CharacterHumor
@@ -9,10 +8,18 @@ public class CharacterHumor
     
     public int ComputeHumorReaction(JokeData jokeData)
     {
+        var totalHumor = 0;
         foreach (var humor in jokeData.JokeHumor)
         {
             var humorScore = Humors.Find(item => item.Type == humor).Value;
+            if (jokeData.WithIrony && humorScore < 0)
+            {
+                humorScore = 0;
+            }
+
+            totalHumor += humorScore;
         }
-        return jokeData.JokeHumor.Sum(humor => Humors.Find(item => item.Type == humor).Value);
+
+        return totalHumor;
     }
 }
