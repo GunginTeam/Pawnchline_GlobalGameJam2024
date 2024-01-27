@@ -1,14 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 [Serializable]
 public class CharacterHumor
 {
     public List<Humor> Humors = new ();
     
-    public int ComputeHumorReaction(List<HumorType> humorTypes)
+    public int ComputeHumorReaction(JokeData jokeData)
     {
-        return humorTypes.Sum(humor => Humors.Find(item => item.Type == humor).Value);
+        var totalHumor = 0;
+        foreach (var humor in jokeData.JokeHumor)
+        {
+            var humorScore = Humors.Find(item => item.Type == humor).Value;
+            if (jokeData.WithIrony && humorScore < 0)
+            {
+                humorScore = 0;
+            }
+
+            totalHumor += humorScore;
+        }
+
+        return totalHumor;
     }
 }

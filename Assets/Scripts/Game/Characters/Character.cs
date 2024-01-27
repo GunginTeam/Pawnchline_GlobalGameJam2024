@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
@@ -35,9 +36,9 @@ public class Character : MonoBehaviour
         return _humorPreferences;
     }
 
-    public int ReactToCard(List<HumorType> humorTypes)
+    public int ReactToCard(JokeData jokeData)
     {
-        var totalHumor = _humorPreferences.ComputeHumorReaction(humorTypes);
+        var totalHumor = _humorPreferences.ComputeHumorReaction(jokeData);
         var reactionSprite = _reactionsModel.GetCorrespondingReaction(totalHumor);
         StartCoroutine(AnimateReaction(reactionSprite));
         return totalHumor;
@@ -58,8 +59,10 @@ public class Character : MonoBehaviour
 
     private IEnumerator AnimateReaction(Sprite reactionSprite)
     {
+        yield return new WaitForSeconds(Random.Range(0f, 2f));
+        
         _reactionObject.GetComponent<SpriteRenderer>().sprite = reactionSprite;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(Random.Range(2f,4f));
         _reactionObject.GetComponent<SpriteRenderer>().sprite = null;
     }
 }
