@@ -4,10 +4,6 @@ using UnityEngine;
 public class CharacterService : ICharacterService
 {
     private CharactersManager _manager;
-    public List<CharacterHumor> GetCharactersHumors()
-    {
-        return _manager.GetPublicHumor();
-    }
 
     public void AssignManager(CharactersManager manager)
     {

@@ -41,6 +41,7 @@ public class Session : MonoBehaviour
     private void EndTurn(int turnIndex)
     {
         OnTurnOver.Invoke(turnIndex);
+        _scoreService.SpreadScore();
     }
     private void EndRound()
     {
