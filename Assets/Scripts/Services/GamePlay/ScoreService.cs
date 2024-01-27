@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class ScoreService : IScoreService
 {
@@ -25,7 +26,8 @@ public class ScoreService : IScoreService
 
     public void SpreadScore()
     {
-        var currentTurnScore = (_reactionScore * _roundMultiplier)/5 ;
+        var currentTurnScore = (_reactionScore * _roundMultiplier)/3;
+        Debug.Log("Increasing meter by: ");
         UpdateUI.Invoke(currentTurnScore);
         
         _roundMultiplier = 1;

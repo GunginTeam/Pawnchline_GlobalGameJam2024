@@ -40,10 +40,10 @@ public class Character : MonoBehaviour
         }
     }
     
-    public int ReactToCard(JokeData jokeData)
+    public float ReactToCard(JokeData jokeData)
     {
         var totalHumor = _humorPreferences.ComputeHumorReaction(jokeData);
-        var reactionSprite = _reactionsModel.GetCorrespondingReaction(totalHumor);
+        var reactionSprite = _reactionsModel.GetCorrespondingReaction(Mathf.RoundToInt(totalHumor));
         StartCoroutine(AnimateReaction(reactionSprite));
         return totalHumor;
     }

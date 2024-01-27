@@ -10,6 +10,8 @@ public class CharactersManager : MonoBehaviour
     [SerializeField] private List<Character> _characters;
     [Range(0f,1f)]
     [SerializeField] private float _hatChance;
+    [SerializeField]
+    private int _animalTypeAmount;
     
     private CharactersData _charactersData;
     private IScoreService _scoreService;
@@ -32,7 +34,7 @@ public class CharactersManager : MonoBehaviour
     private void OnActionCardPlayed(JokeData jokeData)
     {
         var reactionScore = _characters.Sum(character => character.ReactToCard(jokeData));
-        var normalizedScore = (float)reactionScore / (10 * jokeData.JokeHumor.Count);
+        var normalizedScore = reactionScore / 10;
         Debug.Log("Score: "+normalizedScore);
         _scoreService.SetReactionScore(normalizedScore);
     }
@@ -49,7 +51,7 @@ public class CharactersManager : MonoBehaviour
 
     private CharacterVisualData GetCharacterSpriteData()
     {
-        var animalType = (CharacterType)Random.Range(0, 4);
+        var animalType = (CharacterType)Random.Range(0, _animalTypeAmount);
         return _charactersData.GetCharacterVisualData(animalType);
     }
 }

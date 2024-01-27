@@ -537,6 +537,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3584391126611358162, guid: 445202403f7436d4b92e231d5908165f, type: 3}
+      propertyPath: _animalTypeAmount
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3584391126611358162, guid: 445202403f7436d4b92e231d5908165f, type: 3}
       propertyPath: _characters.Array.size
       value: 10
       objectReference: {fileID: 0}
