@@ -35,11 +35,12 @@ public class Character : MonoBehaviour
         return _humorPreferences;
     }
 
-    public void ReactToCard(List<HumorType> humorTypes)
+    public int ReactToCard(List<HumorType> humorTypes)
     {
         var totalHumor = _humorPreferences.ComputeHumorReaction(humorTypes);
         var reactionSprite = _reactionsModel.GetCorrespondingReaction(totalHumor);
         StartCoroutine(AnimateReaction(reactionSprite));
+        return totalHumor;
     }
     
     private void PutOnTheHat(CharacterVisualData visualData, HatSprite hatSprite)

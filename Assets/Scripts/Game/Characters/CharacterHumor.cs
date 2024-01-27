@@ -9,6 +9,6 @@ public class CharacterHumor
     
     public int ComputeHumorReaction(List<HumorType> humorTypes)
     {
-        return humorTypes.Sum(humor => Humors.Find(item => item.Value == (int)humor).Value);
+        return humorTypes.Sum(humor => Humors.Find(item => item.Type == humor).Value);
     }
 }
