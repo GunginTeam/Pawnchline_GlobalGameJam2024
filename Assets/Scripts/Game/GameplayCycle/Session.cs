@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UI.Canvas;
 using UnityEngine;
 using Zenject;
@@ -47,7 +49,7 @@ public class Session : MonoBehaviour
     private void EndTurn(int turnIndex)
     {
         OnTurnOver.Invoke(turnIndex);
-        _scoreService.SpreadScore();
+        StartCoroutine(DelayResultCalculation());
     }
     private void EndRound()
     {
@@ -64,4 +66,10 @@ public class Session : MonoBehaviour
     }
 
     private void OpenGameOverPopUp() => _gameCanvas.HandleGameOver();
+
+    private IEnumerator DelayResultCalculation()
+    {
+        yield return null;
+        _scoreService.SpreadScore();
+    }
 }
