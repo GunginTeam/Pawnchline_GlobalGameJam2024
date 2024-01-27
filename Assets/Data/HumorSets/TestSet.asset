@@ -26,13 +26,13 @@ MonoBehaviour:
       Value: 0
   - Humors:
     - Type: 0
-      Value: 0
+      Value: -2
     - Type: 1
       Value: 2
     - Type: 2
-      Value: 0
+      Value: -1
     - Type: 3
-      Value: 0
+      Value: 1
     - Type: 4
       Value: 0
   - Humors:
