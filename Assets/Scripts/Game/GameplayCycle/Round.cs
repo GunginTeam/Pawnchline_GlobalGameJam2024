@@ -1,47 +1,4 @@
 using System;
-using UnityEngine;
-using Zenject;
-
-public class Session : MonoBehaviour
-{
-    private const int _amountOfRounds = 3;
-
-    private IScoreService _scoreService;
-
-    private int _currentRoundIndex;
-    private Round _currentRound;
-
-    [Inject]
-    public void Construct(IScoreService scoreService)
-    {
-        _scoreService = scoreService;
-    }
-
-    private void Start()
-    {
-        StartRound();
-    }
-
-    private void StartRound()
-    {
-        _currentRound = new Round(_scoreService);
-        _currentRound.SetOnCompleteCallback(EndRound);
-        _currentRound.StartTurn();
-    }
-
-    private void EndRound()
-    {
-        _currentRoundIndex++;
-
-        if (_currentRoundIndex >= _amountOfRounds)
-        {
-            //Game Over
-            return;
-        }
-
-        StartRound();
-    }
-}
 
 public class Round
 {
@@ -76,6 +33,8 @@ public class Round
 
     private void EndTurn()
     {
+        CurrentTurn.Dispose();
+        
         _currentTurnIndex++;
 
         if (_currentTurnIndex >= _amountOfTurns)
@@ -95,37 +54,5 @@ public class Round
             2 => _punchTurnMultiplier,
             _ => _initialTurnMultiplier
         };
-    }
-}
-
-public class Turn
-{
-    private IScoreService _scoreService;
-    
-    private float _scoreMultiplier;
-    private bool _bonusActionUsed;
-    
-    private Action _onComplete;
-    
-    public Turn(float scoreMultiplier, IScoreService scoreService)
-    {
-        _scoreMultiplier = scoreMultiplier;
-        _scoreService = scoreService;
-        
-        _scoreService.ActionCardPlayed += _ => OnActionCardSelected();
-    }
-
-    public void SetOnCompleteCallback(Action onComplete)
-    {
-        _onComplete = onComplete;
-    }
-
-    public bool CanUseBonusCard() => !_bonusActionUsed;
-    public void OnBonusCardSelected() => _bonusActionUsed = true;
-
-    private void OnActionCardSelected()
-    {
-        _onComplete?.Invoke();
-        _scoreService.SetScoreMultiplier(_scoreMultiplier);
     }
 }
