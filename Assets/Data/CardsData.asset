@@ -15,26 +15,34 @@ MonoBehaviour:
   CardPrefab: {fileID: 2888385563995035897, guid: bb4dcdaab73564dc299cb33f3bb44568, type: 3}
   Cards:
   - TextKey: CARD_TEXT_0
-    HummorTypes: 0000000001000000
+    HummorTypes: 00000000
   - TextKey: CARD_TEXT_1
-    HummorTypes: 00000000
+    HummorTypes: 01000000
   - TextKey: CARD_TEXT_2
-    HummorTypes: 00000000
+    HummorTypes: 02000000
   - TextKey: CARD_TEXT_3
-    HummorTypes: 00000000
+    HummorTypes: 03000000
   - TextKey: CARD_TEXT_4
-    HummorTypes: 00000000
+    HummorTypes: 04000000
   - TextKey: CARD_TEXT_5
-    HummorTypes: 00000000
+    HummorTypes: 0000000001000000
   - TextKey: CARD_TEXT_6
-    HummorTypes: 00000000
+    HummorTypes: 0000000002000000
   - TextKey: CARD_TEXT_7
-    HummorTypes: 00000000
+    HummorTypes: 0000000003000000
   - TextKey: CARD_TEXT_8
-    HummorTypes: 00000000
+    HummorTypes: 0000000004000000
   - TextKey: CARD_TEXT_9
-    HummorTypes: 00000000
+    HummorTypes: 0100000002000000
   - TextKey: CARD_TEXT_10
-    HummorTypes: 00000000
+    HummorTypes: 0100000003000000
+  - TextKey: CARD_TEXT_10
+    HummorTypes: 0100000004000000
+  - TextKey: CARD_TEXT_10
+    HummorTypes: 0300000002000000
+  - TextKey: CARD_TEXT_10
+    HummorTypes: 0400000002000000
+  - TextKey: CARD_TEXT_10
+    HummorTypes: 0300000002000000
   BonusCards:
   - {fileID: 7304111848577325236, guid: 35414cb212155407e8d51ebdb0ccc63c, type: 3}
