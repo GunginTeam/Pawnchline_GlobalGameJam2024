@@ -29,8 +29,9 @@ public class PlayerHand : MonoBehaviour
     {
         _cardsService = cardsService;
         _scoreService = scoreService;
+        
         _cardsService.SetHolder(_cardsHolder);
-        _scoreService.DiscardDraw += DiscardHand;
+        _scoreService.DiscardDraw += DiscardHandWrapper;
     }
 
     private void Awake()
@@ -42,9 +43,10 @@ public class PlayerHand : MonoBehaviour
     private void OnDestroy()
     {
         _currentSession.OnRoundOver -= DiscardHand;
-        _scoreService.DiscardDraw -= DiscardHand;
+        _scoreService.DiscardDraw -= DiscardHandWrapper;
     }
 
+    private void DiscardHandWrapper() => DiscardHand(-1);
     private void Start()
     {
         GetInitialTurnHand();
@@ -52,15 +54,22 @@ public class PlayerHand : MonoBehaviour
 
     private void GetInitialTurnHand()
     {
-        for (var index = 0; index < InitialCards; index++)
+        for (int i = 0; i < 5; i++)
         {
-            var forceActionCard = index < InitialForcedActionCards;
-
-            if (FetchCard(forceActionCard).IsAction)
-            {
-                _currentActionCards++;
-            }
+            var card = _cardsService.GetBonusCardWhapper();
+            card.SetOnSelectCard(SetCurrentCard, CheckUsePreviousCard);
+            _handCards.Add(card);
         }
+        
+        // for (var index = 0; index < InitialCards; index++)
+        // {
+        //     var forceActionCard = index < InitialForcedActionCards;
+        //
+        //     if (FetchCard(forceActionCard).IsAction)
+        //     {
+        //         _currentActionCards++;
+        //     }
+        // }
     }
 
     private void SetCurrentCard(BaseCard card)
@@ -140,7 +149,10 @@ public class PlayerHand : MonoBehaviour
 
     private void DiscardHand(int currentTurn)
     {
-        _currentTurn = currentTurn;
+        if(currentTurn >= 0)
+        {
+            _currentTurn = currentTurn;
+        }
 
         foreach (var card in _handCards)
         {
