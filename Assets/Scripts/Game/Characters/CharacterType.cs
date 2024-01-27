@@ -1,7 +1,10 @@
 ﻿public enum CharacterType
 {
     CROCODILE,
-    RHINOCEROS,
+    FROG,
+    PIDGEON,
+    WOLF,
+    PUFFERFISH,
     BUNNY,
-    FOX
+    TOUCAN
 }

@@ -7,7 +7,9 @@ using Zenject;
 public class Character : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _renderer;
+    [SerializeField] private SpriteMask _mask;
     [SerializeField] private GameObject _hatObject;
+    [SerializeField] private SpriteMask _hatMask;
     [SerializeField] private GameObject _reactionObject;
 
     private CharacterVisualData _visualData;
@@ -25,9 +27,16 @@ public class Character : MonoBehaviour
         _humorPreferences = humor;
         _visualData = visualData;
         _renderer.sprite = _visualData._defaultCharacter;
+        if(_mask!=null)
+            _mask.sprite = _visualData._defaultCharacter;
+        
         if (hatSprite != null)
         {
             PutOnTheHat(visualData, hatSprite);
+        }
+        else
+        {
+            _hatObject.SetActive(false);
         }
     }
     
@@ -50,6 +59,8 @@ public class Character : MonoBehaviour
         _hatObject.transform.localPosition = position;
 
         _hatObject.GetComponent<SpriteRenderer>().sprite = hatSprite._sprite;
+        if(_hatMask!=null)
+            _hatMask.sprite = hatSprite._sprite;
     }
 
     private IEnumerator AnimateReaction(Sprite reactionSprite)
