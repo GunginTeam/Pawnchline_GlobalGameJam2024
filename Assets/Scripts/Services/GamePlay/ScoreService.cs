@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScoreService : IScoreService
 {
     public event Action<JokeData> ActionCardPlayed;
+    public event Action DiscardDraw;
 
     private bool _withIrony;
     private float _roundMultiplier;
@@ -13,6 +14,11 @@ public class ScoreService : IScoreService
     {
         ActionCardPlayed?.Invoke(new JokeData(cardHumor, _withIrony));
         _withIrony = false;
+    }
+
+    public void DiscardDrawPlayed()
+    {
+        DiscardDraw?.Invoke();
     }
 
     public void SetScoreMultiplier(float multiplier)

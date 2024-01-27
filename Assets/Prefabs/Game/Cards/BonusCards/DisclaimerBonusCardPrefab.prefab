@@ -95,6 +95,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: DisclaimerBonusCardPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 8665635071884690430, guid: 35414cb212155407e8d51ebdb0ccc63c, type: 3}
+      propertyPath: m_text
+      value: 'Use a disclaimer
+
+        to soften the joke'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35414cb212155407e8d51ebdb0ccc63c, type: 3}
 --- !u!1 &7645432594992406613 stripped

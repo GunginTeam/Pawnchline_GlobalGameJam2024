@@ -14,6 +14,7 @@ public class PlayerHand : MonoBehaviour
     private BaseCard _currentCard;
 
     private ICardsService _cardsService;
+    private IScoreService _scoreService;
 
     const int _cardUseRange = 50;
 
@@ -23,11 +24,12 @@ public class PlayerHand : MonoBehaviour
     private int _currentActionCards;
 
     [Inject]
-    public void Construct(ICardsService cardsService)
+    public void Construct(ICardsService cardsService, IScoreService scoreService)
     {
         _cardsService = cardsService;
-
+        _scoreService = scoreService;
         _cardsService.SetHolder(_cardsHolder);
+        _scoreService.DiscardDraw += DiscardHand;
     }
 
     private void Awake()
@@ -39,6 +41,7 @@ public class PlayerHand : MonoBehaviour
     private void OnDestroy()
     {
         _currentSession.OnRoundOver -= DiscardHand;
+        _scoreService.DiscardDraw -= DiscardHand;
     }
 
     private void Start()
