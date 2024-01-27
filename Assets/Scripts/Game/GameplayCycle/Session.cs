@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 using Zenject;
 
 public class Session : MonoBehaviour
 {
-    private const int _amountOfRounds = 3;
+    const int AmountOfRounds = 3;
+
+    public Action OnRoundOver;
 
     private IScoreService _scoreService;
     
@@ -35,9 +38,11 @@ public class Session : MonoBehaviour
 
     private void EndRound()
     {
+        OnRoundOver.Invoke();
+
         _currentRoundIndex++;
 
-        if (_currentRoundIndex >= _amountOfRounds)
+        if (_currentRoundIndex >= AmountOfRounds)
         {
             Debug.Log("SESSION OVER");
             return;
