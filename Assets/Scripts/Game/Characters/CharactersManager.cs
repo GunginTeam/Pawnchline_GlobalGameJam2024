@@ -33,6 +33,7 @@ public class CharactersManager : MonoBehaviour
     {
         var reactionScore = _characters.Sum(character => character.ReactToCard(jokeData));
         var normalizedScore = (float)reactionScore / (20 * jokeData.JokeHumor.Count);
+        Debug.Log("Score: "+normalizedScore);
         _scoreService.SetReactionScore(normalizedScore);
     }
     
