@@ -37,4 +37,4 @@ MonoBehaviour:
   - _sprite: {fileID: 1564086303, guid: a3a496a3244315c4da2d127e4c76ce7a, type: 3}
   - _sprite: {fileID: 354482197, guid: a3a496a3244315c4da2d127e4c76ce7a, type: 3}
   - _sprite: {fileID: 1495252512, guid: a3a496a3244315c4da2d127e4c76ce7a, type: 3}
-  _humorSet: {fileID: 11400000, guid: 33cbd39f8132ad7468d00ea8c0f768bb, type: 2}
+  _humorSet: {fileID: 11400000, guid: b1af2ed8c298e294cb0ddf691e0b0cfe, type: 2}
