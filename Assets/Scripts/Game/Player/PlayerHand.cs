@@ -5,7 +5,7 @@ using Zenject;
 
 public class PlayerHand : MonoBehaviour
 {
-    const int CardUseRange = 50;
+    const int CardUseRange = 75;
     const int InitialCards = 5;
     const int InitialForcedActionCards = 3;
 
@@ -29,7 +29,7 @@ public class PlayerHand : MonoBehaviour
     {
         _cardsService = cardsService;
         _scoreService = scoreService;
-        
+
         _cardsService.SetHolder(_cardsHolder);
         _scoreService.DiscardDraw += DiscardHandWrapper;
     }
@@ -47,6 +47,7 @@ public class PlayerHand : MonoBehaviour
     }
 
     private void DiscardHandWrapper() => DiscardHand(-1);
+
     private void Start()
     {
         GetInitialTurnHand();
@@ -57,7 +58,7 @@ public class PlayerHand : MonoBehaviour
         for (var index = 0; index < InitialCards; index++)
         {
             var forceActionCard = index < InitialForcedActionCards;
-        
+
             if (FetchCard(forceActionCard).IsAction)
             {
                 _currentActionCards++;
@@ -95,6 +96,7 @@ public class PlayerHand : MonoBehaviour
                 }
             }
 
+            _cardsUsePosition.transform.parent.DOShakeScale(0.5f, 0.25f);
             _handCards.Remove(_currentCard);
             _currentCard.Consume(isActionCard =>
             {
@@ -142,7 +144,7 @@ public class PlayerHand : MonoBehaviour
 
     private void DiscardHand(int currentTurn)
     {
-        if(currentTurn >= 0)
+        if (currentTurn >= 0)
         {
             _currentTurn = currentTurn;
         }
