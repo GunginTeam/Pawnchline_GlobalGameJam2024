@@ -2,7 +2,7 @@ using UnityEngine;
 
 public interface ICardsService
 {
-    BaseCard GetBonusCardThis();
+    BaseCard GetBonusCardWhapper();
     void SetHolder(Transform holder);
     BaseCard GetCard(bool forceActionCard = false);
 }
