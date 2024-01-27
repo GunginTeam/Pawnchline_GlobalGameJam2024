@@ -36,7 +36,8 @@ public class CharactersManager : MonoBehaviour
         {
             reactionScore += character.ReactToCard(humorTypes);
         }
-        //call score service
+        
+        //_scoreService.SetReactionScore();
     }
 
     public List<CharacterHumor> GetPublicHumor()
