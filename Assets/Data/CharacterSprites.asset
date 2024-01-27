@@ -14,25 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterSprites:
   - _type: 0
-    _defaultCharacter: {fileID: -1278059773, guid: 3698aa2bf8ae0d94fa914a6306d631d2, type: 3}
-    _hatPosition: {x: 2.8, y: 3.7}
-    _happyCharacter: {fileID: 0}
-    _angryCharacter: {fileID: 0}
+    _defaultCharacter: {fileID: -1412516396, guid: 3c7cc488fcbbdef4cadcbe216f2e6ccc, type: 3}
+    _hatPosition: {x: -4.05, y: 6.36}
   - _type: 1
-    _defaultCharacter: {fileID: -316856496, guid: 3698aa2bf8ae0d94fa914a6306d631d2, type: 3}
-    _hatPosition: {x: 2.8, y: 4.2}
-    _happyCharacter: {fileID: 0}
-    _angryCharacter: {fileID: 0}
+    _defaultCharacter: {fileID: 108994905, guid: 3c7cc488fcbbdef4cadcbe216f2e6ccc, type: 3}
+    _hatPosition: {x: -4.21, y: -67}
   - _type: 2
-    _defaultCharacter: {fileID: -275196949, guid: 3698aa2bf8ae0d94fa914a6306d631d2, type: 3}
-    _hatPosition: {x: 1.75, y: 2.4}
-    _happyCharacter: {fileID: 0}
-    _angryCharacter: {fileID: 0}
+    _defaultCharacter: {fileID: 488821942, guid: 3c7cc488fcbbdef4cadcbe216f2e6ccc, type: 3}
+    _hatPosition: {x: -2.61, y: 7.78}
   - _type: 3
-    _defaultCharacter: {fileID: 812337312, guid: 3698aa2bf8ae0d94fa914a6306d631d2, type: 3}
-    _hatPosition: {x: 1.95, y: 2.8}
-    _happyCharacter: {fileID: 0}
-    _angryCharacter: {fileID: 0}
+    _defaultCharacter: {fileID: 1745312896, guid: 3c7cc488fcbbdef4cadcbe216f2e6ccc, type: 3}
+    _hatPosition: {x: -2.76, y: 5.74}
+  - _type: 4
+    _defaultCharacter: {fileID: -899551913, guid: 3c7cc488fcbbdef4cadcbe216f2e6ccc, type: 3}
+    _hatPosition: {x: -2.76, y: 6.45}
+  - _type: 5
+    _defaultCharacter: {fileID: -1017564317, guid: 3c7cc488fcbbdef4cadcbe216f2e6ccc, type: 3}
+    _hatPosition: {x: -2.39, y: 4.59}
+  - _type: 6
+    _defaultCharacter: {fileID: 68259240, guid: 3c7cc488fcbbdef4cadcbe216f2e6ccc, type: 3}
+    _hatPosition: {x: -2.1, y: 5.8}
   _hatSprites:
   - _sprite: {fileID: 1564086303, guid: a3a496a3244315c4da2d127e4c76ce7a, type: 3}
   - _sprite: {fileID: 354482197, guid: a3a496a3244315c4da2d127e4c76ce7a, type: 3}
