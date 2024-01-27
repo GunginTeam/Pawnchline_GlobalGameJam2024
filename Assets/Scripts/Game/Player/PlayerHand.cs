@@ -5,7 +5,7 @@ using Zenject;
 
 public class PlayerHand : MonoBehaviour
 {
-    const int CardUseRange = 75;
+    const int CardUseRange = 100;
     const int InitialCards = 5;
     const int InitialForcedActionCards = 3;
 
