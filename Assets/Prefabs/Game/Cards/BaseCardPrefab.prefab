@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 367187289702475288}
   - component: {fileID: 5250879457197532756}
   - component: {fileID: 1466001872139099751}
+  - component: {fileID: 1136106152294218175}
   m_Layer: 5
   m_Name: BaseCardPrefab
   m_TagString: Untagged
@@ -37,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 150}
+  m_SizeDelta: {x: 115, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5250879457197532756
 Canvas:
@@ -77,6 +78,17 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!210 &1136106152294218175
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367187289702475287}
+  m_Enabled: 1
+  m_SortingLayerID: -472209135
+  m_SortingLayer: 2
+  m_SortingOrder: 0
 --- !u!1 &367187289871674828
 GameObject:
   m_ObjectHideFlags: 0

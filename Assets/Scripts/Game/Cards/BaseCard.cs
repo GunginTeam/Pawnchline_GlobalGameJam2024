@@ -2,12 +2,14 @@ using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 
 public abstract class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
     public bool IsAction { get; protected set; }
     
     [SerializeField] private Transform _container;
+    [SerializeField] private SortingGroup _sortingGroup;
 
     private Action<BaseCard> _onSelected;
     private Action _onDisSelected;
@@ -82,6 +84,11 @@ public abstract class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerEx
         _onDisSelected.Invoke();
         ResetPosition();
     }
+    
+    private void Start()
+    {
+        _sortingGroup = GetComponent<SortingGroup>();
+    }
 
     private void Update()
     {
@@ -95,6 +102,8 @@ public abstract class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerEx
     {
         _isHighlighted = highlight;
 
+        _sortingGroup.sortingOrder = highlight ? 1 : 0;
+        
         _container.DOLocalMoveY(_isHighlighted ? 60 : 0, 0.25f);
         _container.DOScale(_isHighlighted ? 1.15f : 1, 0.25f);
         _container.DORotate(Vector3.forward * (_isHighlighted ? 90 : 0), 0.25f).SetEase(Ease.OutBack);
