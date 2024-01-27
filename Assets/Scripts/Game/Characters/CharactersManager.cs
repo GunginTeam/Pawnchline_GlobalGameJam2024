@@ -31,13 +31,9 @@ public class CharactersManager : MonoBehaviour
 
     private void OnActionCardPlayed(List<HumorType> humorTypes)
     {
-        var reactionScore = 0;
-        foreach (var character in _characters)
-        {
-            reactionScore += character.ReactToCard(humorTypes);
-        }
-        
-        //_scoreService.SetReactionScore();
+        var reactionScore = _characters.Sum(character => character.ReactToCard(humorTypes));
+        var normalizedScore = reactionScore / (20 * humorTypes.Count);
+        _scoreService.SetReactionScore(normalizedScore);
     }
 
     public List<CharacterHumor> GetPublicHumor()
