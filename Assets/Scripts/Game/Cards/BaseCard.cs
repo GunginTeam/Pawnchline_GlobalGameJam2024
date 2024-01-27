@@ -95,7 +95,7 @@ public abstract class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerEx
     {
         _isHighlighted = highlight;
 
-        _container.DOMoveY(_isHighlighted ? 50 : 0, 0.25f);
+        _container.DOLocalMoveY(_isHighlighted ? 50 : 0, 0.25f);
         _container.DOScale(_isHighlighted ? 1.15f : 1, 0.25f);
         _container.DORotate(Vector3.forward * (_isHighlighted ? 90 : 0), 0.25f);
     }
