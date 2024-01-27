@@ -34,6 +34,11 @@ public class Session : MonoBehaviour
         StartRound();
     }
 
+    private void OnDestroy()
+    {
+        GetCurrentTurn().Dispose();
+    }
+
     private void StartRound()
     {
         _currentRound = new Round(_scoreService);
