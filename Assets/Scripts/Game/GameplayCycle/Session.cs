@@ -21,7 +21,6 @@ public class Session : MonoBehaviour
         _scoreService = scoreService;
     }
 
-    public Round GetCurrentRound() => _currentRound;
     public Turn GetCurrentTurn() => _currentRound.CurrentTurn;
 
     private void Start()
