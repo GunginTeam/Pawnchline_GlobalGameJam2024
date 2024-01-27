@@ -97,18 +97,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8665635071884690430, guid: 35414cb212155407e8d51ebdb0ccc63c, type: 3}
       propertyPath: m_text
-      value: 'Tell a
-
-        Personal
-
-        Anecdote
-
-        to amplify the
-        joke effects'
+      value: Sample
       objectReference: {fileID: 0}
     - target: {fileID: 8665635071884690430, guid: 35414cb212155407e8d51ebdb0ccc63c, type: 3}
       propertyPath: m_fontSize
-      value: 14.9
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35414cb212155407e8d51ebdb0ccc63c, type: 3}
@@ -117,6 +110,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8699451193118638339, guid: 35414cb212155407e8d51ebdb0ccc63c, type: 3}
   m_PrefabInstance: {fileID: 3727795299470364915}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5474493947748799245 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8665635071884690430, guid: 35414cb212155407e8d51ebdb0ccc63c, type: 3}
+  m_PrefabInstance: {fileID: 3727795299470364915}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5474493948953787581 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8665635070664977486, guid: 35414cb212155407e8d51ebdb0ccc63c, type: 3}
@@ -135,4 +139,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _container: {fileID: 5404709700273050096}
+  _cardText: {fileID: 5474493947748799245}
+  _textKey: BONUS_CARD_TEXT_2
   _multiplier: 1.5

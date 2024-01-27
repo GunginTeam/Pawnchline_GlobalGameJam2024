@@ -1,8 +1,10 @@
+using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
 using Zenject;
+using Image = UnityEngine.UI.Image;
 
 public class SessionUI : MonoBehaviour
 {
@@ -94,6 +96,11 @@ public class SessionUI : MonoBehaviour
         if (_currentRoundIndex + 1 < 4)
         {
             _roundText.text = $"ROUND {_currentRoundIndex + 1}";
+            _roundText.transform.parent.DOScale(Vector3.one * 1.25f, 0.25f).SetEase(Ease.OutBack).OnComplete(() =>
+            {
+                _roundText.transform.parent.DOScale(Vector3.one, 0.15f);
+            });
+
             SetTurnShown(-1);
         }
     }

@@ -1,4 +1,3 @@
-using System;
 using Services.Runtime.AudioService;
 using Services.Runtime.RemoteVariables;
 using UnityEngine;
@@ -9,6 +8,7 @@ public class GameInstaller : MonoInstaller
     [SerializeField] private CardsData _cardsData;
     [SerializeField] private CharactersData _charactersData;
     [SerializeField] private ReactionsModel _reactionsModel;
+    [SerializeField] private HumorTypeSprites _humorTypeSprites;
 
     public override void InstallBindings()
     {
@@ -31,6 +31,7 @@ public class GameInstaller : MonoInstaller
         Container.BindInstance(_cardsData).AsSingle();
         Container.BindInstance(_charactersData).AsSingle();
         Container.BindInstance(_reactionsModel).AsSingle();
+        Container.BindInstance(_humorTypeSprites).AsSingle();
     }
 
     private void InstallServices()

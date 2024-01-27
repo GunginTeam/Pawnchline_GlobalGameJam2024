@@ -1,19 +1,26 @@
+using Services.Runtime.RemoteVariables;
+using TMPro;
+using UnityEngine;
 using Zenject;
 
-public class BonusCard : BaseCard
+public abstract class BonusCard : BaseCard
 {
+    [SerializeField] private TMP_Text _cardText;
+    
     protected IScoreService _scoreService;
+    protected IRemoteVariablesService _remoteVariables;
     
     [Inject]
-    public void Construct(IScoreService scoreService)
+    public void Construct(IScoreService scoreService, IRemoteVariablesService remoteVariables)
     {
         _scoreService = scoreService;
+        _remoteVariables = remoteVariables;
     }
     
     public BonusCard Initialize()
     {
-        gameObject.name = "Bonus Card";
-
+        _cardText.text = _remoteVariables.GetString(GetTextKey());
+        
         return this;
     }
 
@@ -21,4 +28,6 @@ public class BonusCard : BaseCard
     {
         
     }
+
+    protected abstract string GetTextKey();
 }

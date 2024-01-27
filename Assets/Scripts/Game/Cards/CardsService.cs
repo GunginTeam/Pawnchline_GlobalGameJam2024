@@ -52,7 +52,7 @@ public class CardsService : ICardsService
         return GetActionCard();
     }
     
-    public BaseCard GetBonusCardWhapper() => GetBonusCard();
+    public BaseCard GetBonusCardWrapper() => GetBonusCard();
 
     private BaseCard GetActionCard()
     {
