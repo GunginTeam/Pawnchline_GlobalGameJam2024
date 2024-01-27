@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using Zenject;
@@ -7,6 +7,8 @@ public class PlayerHand : MonoBehaviour
 {
     [SerializeField] private Transform _cardsHolder;
     [SerializeField] private Transform _cardsUsePosition;
+
+    private List<BaseCard> _handCards = new();
 
     private Session _currentSession;
     private BaseCard _currentCard;
@@ -31,6 +33,12 @@ public class PlayerHand : MonoBehaviour
     private void Awake()
     {
         _currentSession = FindObjectOfType<Session>();
+        _currentSession.OnRoundOver += DiscardHand;
+    }
+
+    private void OnDestroy()
+    {
+        _currentSession.OnRoundOver -= DiscardHand;
     }
 
     private void Start()
@@ -81,9 +89,23 @@ public class PlayerHand : MonoBehaviour
                 }
             }
 
-            _currentCard.Consume(()=> HideHand(false));
+            _handCards.Remove(_currentCard);
+            _currentCard.Consume(isActionCard =>
+            {
+                if (isActionCard)
+                {
+                    Invoke(nameof(DelayedShowHand), 4);
+                }
+                else
+                {
+                    HideHand(false);
+                }
+            });
 
-            FetchCard(_currentActionCards == 0);
+            if (_handCards.Count < _initialCards)
+            {
+                FetchCard(_currentActionCards == 0);
+            }
         }
         else
         {
@@ -93,16 +115,31 @@ public class PlayerHand : MonoBehaviour
         _currentCard = null;
     }
 
+    private void DelayedShowHand() => HideHand(false);
+
     private BaseCard FetchCard(bool forceActionCard)
     {
         var card = _cardsService.GetCard(forceActionCard);
         card.SetOnSelectCard(SetCurrentCard, CheckUsePreviousCard);
 
+        _handCards.Add(card);
         return card;
     }
 
     private void HideHand(bool hide)
     {
         transform.DOLocalMoveY(hide ? -100 : 0, 0.25f);
+    }
+
+    private void DiscardHand()
+    {
+        foreach (var card in _handCards)
+        {
+            Destroy(card.gameObject);
+        }
+
+        _handCards.Clear();
+
+        GetInitialTurnHand();
     }
 }

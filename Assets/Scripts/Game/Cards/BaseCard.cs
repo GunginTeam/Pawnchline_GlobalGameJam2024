@@ -19,7 +19,7 @@ public abstract class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     protected abstract void OnConsume();
     
-    public void Consume(Action onComplete = null)
+    public void Consume(Action<bool> onComplete = null)
     {
         OnConsume();
         _isConsumed = true;
@@ -28,7 +28,7 @@ public abstract class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerEx
         _container.DORotate(Vector3.forward * 500, 0.5f).SetRelative().OnComplete(() =>
         {
             Destroy(gameObject);
-            onComplete?.Invoke();
+            onComplete?.Invoke(IsAction);
         });
     }
     
