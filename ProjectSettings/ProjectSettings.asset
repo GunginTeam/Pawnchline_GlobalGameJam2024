@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: GunginTeam
-  productName: X_GlobalGameJam2024
+  productName: Pawnchline
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.054901965, g: 0.054901965, b: 0.054901965, a: 1}
