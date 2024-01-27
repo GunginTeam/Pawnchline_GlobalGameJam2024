@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class ScoreService : IScoreService
 {
@@ -9,7 +10,7 @@ public class ScoreService : IScoreService
 
     private bool _withIrony;
     
-    private float _roundMultiplier;
+    private float _roundMultiplier=1;
     private float _reactionScore;
 
     public void PlayActionCard(List<HumorType> cardHumor)
@@ -25,7 +26,10 @@ public class ScoreService : IScoreService
 
     public void SpreadScore()
     {
-        var currentTurnScore = (_reactionScore * _roundMultiplier)/5 ;
+        var currentTurnScore = (_reactionScore * _roundMultiplier)/5;
+        Debug.Log("Increasing meter by: "+currentTurnScore);
+        Debug.Log("The reaction score was: "+_reactionScore);
+        Debug.Log("The multiplier was: "+_roundMultiplier);
         UpdateUI.Invoke(currentTurnScore);
         
         _roundMultiplier = 1;
@@ -34,6 +38,7 @@ public class ScoreService : IScoreService
     public void SetScoreMultiplier(float multiplier)
     {
         _roundMultiplier *= multiplier;
+        Debug.Log("Set the multiplier to "+_roundMultiplier);
     }
 
     public void SetReactionScore(float score)

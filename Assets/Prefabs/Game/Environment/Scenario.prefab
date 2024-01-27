@@ -230,6 +230,7 @@ MonoBehaviour:
   - {fileID: 5479859399193843618}
   - {fileID: 3967312498470709506}
   _hatChance: 0.701
+  _animalTypeAmount: 7
 --- !u!1 &3584391127980527709
 GameObject:
   m_ObjectHideFlags: 0
