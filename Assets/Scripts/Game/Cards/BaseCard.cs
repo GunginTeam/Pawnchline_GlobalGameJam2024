@@ -102,7 +102,7 @@ public abstract class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerEx
     {
         _isHighlighted = highlight;
 
-        _canvas.sortingOrder = highlight ? 11 : 10;
+        _canvas.sortingOrder = highlight ? 1 : 0;
         
         _container.DOLocalMoveY(_isHighlighted ? 60 : 0, 0.25f);
         _container.DOScale(_isHighlighted ? 1.15f : 1, 0.25f);

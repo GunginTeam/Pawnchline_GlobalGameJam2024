@@ -43,18 +43,20 @@ public class Session : MonoBehaviour
 
     private void OnBonusActionUsed()
     {
-        OnBonusActionUsedEvent.Invoke();
+        OnBonusActionUsedEvent?.Invoke();
     }
     
     private void EndTurn(int turnIndex)
     {
-        OnTurnOver.Invoke(turnIndex);
+        OnTurnOver?.Invoke(turnIndex);
+        _scoreService.SpreadScore();
         StartCoroutine(DelayResultCalculation());
     }
+    
     private void EndRound()
     {
         _currentRoundIndex++;
-        OnRoundOver.Invoke(_currentRoundIndex);
+        OnRoundOver?.Invoke(_currentRoundIndex);
 
         if (_currentRoundIndex >= AmountOfRounds)
         {

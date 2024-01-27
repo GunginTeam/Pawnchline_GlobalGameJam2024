@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -52,7 +51,6 @@ public class SessionUI : MonoBehaviour
 
     private void UpdateLaughFiller(float addition)
     {
-        
         _laughFiller.transform.parent.DOShakeScale(0.5f, 0.25f);
         _laughFiller.fillAmount += addition;
     }
