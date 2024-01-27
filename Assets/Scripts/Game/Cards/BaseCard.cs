@@ -20,6 +20,7 @@ public abstract class BaseCard : MonoBehaviour, IPointerEnterHandler, IPointerEx
     protected abstract void OnConsume();
     public void Consume(Action onComplete = null)
     {
+        OnConsume();
         _isConsumed = true;
         
         _container.DOScale(0, 0.25f);

@@ -75,4 +75,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cardsData: {fileID: 11400000, guid: 11421cb03295f443a8b1f45199aa6133, type: 2}
-  _charactersSpritesModel: {fileID: 11400000, guid: 5e9caa5f7e5870c4cb3ec4b7c039e596, type: 2}
+  _charactersData: {fileID: 11400000, guid: 5e9caa5f7e5870c4cb3ec4b7c039e596, type: 2}
+  _reactionsModel: {fileID: 11400000, guid: 15ac51d1879378848af592258668b2dd, type: 2}

@@ -21,15 +21,15 @@ public class CharactersManager : MonoBehaviour
         _charactersData = charactersData;
         _scoreService = scoreService;
 
-        _scoreService.CardPlayed += OnCardPlayed;
+        _scoreService.ActionCardPlayed += OnActionCardPlayed;
     }
 
     public void OnDestroy()
     {
-        _scoreService.CardPlayed -= OnCardPlayed;
+        _scoreService.ActionCardPlayed -= OnActionCardPlayed;
     }
 
-    private void OnCardPlayed(List<HumorType> humorTypes)
+    private void OnActionCardPlayed(List<HumorType> humorTypes)
     {
         foreach (var character in _characters)
         {

@@ -9,13 +9,15 @@ public class ActionCard : BaseCard
     [SerializeField] private TMP_Text _text;
 
     private IRemoteVariablesService _remoteVariablesService;
+    private IScoreService _scoreService;
     
     private ActionCardData _actionCardData;
 
     [Inject]
-    public void Construct(IRemoteVariablesService remoteVariablesService)
+    public void Construct(IRemoteVariablesService remoteVariablesService, IScoreService scoreService)
     {
         _remoteVariablesService = remoteVariablesService;
+        _scoreService = scoreService;
     }
     
     public ActionCard Initialize(ActionCardData data)
@@ -37,6 +39,6 @@ public class ActionCard : BaseCard
 
     protected override void OnConsume()
     {
-        //Call the Service
+        _scoreService.PlayActionCard(_actionCardData.HummorTypes);
     }
 }
