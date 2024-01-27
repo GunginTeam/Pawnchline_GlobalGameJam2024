@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ public class SessionUI : MonoBehaviour
     [SerializeField] private TMP_Text _roundText;
 
     [SerializeField] private Image _laughFiller;
-    [SerializeField] private GameObject _bonusActionUse;
+    [SerializeField] private Transform _bonusActionUse;
 
     [SerializeField] private GameObject _openerTurnShownDebug;
     [SerializeField] private GameObject _bodyTurnShownDebug;
@@ -19,7 +20,6 @@ public class SessionUI : MonoBehaviour
     private IScoreService _scoreService;
 
     private int _currentRoundIndex;
-    private bool _bonusActionAvailable;
 
     [Inject]
     public void Construct(IScoreService scoreService)
@@ -38,6 +38,7 @@ public class SessionUI : MonoBehaviour
 
         _session.OnRoundOver += UpdateRoundText;
         _session.OnTurnOver += SetTurnShown;
+        _session.OnBonusActionUsedEvent += UpdateBonusActionUseDisplay;
         _scoreService.UpdateUI += UpdateLaughFiller;
     }
 
@@ -45,12 +46,8 @@ public class SessionUI : MonoBehaviour
     {
         _session.OnRoundOver -= UpdateRoundText;
         _session.OnTurnOver -= SetTurnShown;
+        _session.OnBonusActionUsedEvent -= UpdateBonusActionUseDisplay;
         _scoreService.UpdateUI -= UpdateLaughFiller;
-    }
-
-    private void Update()
-    {
-        UpdateBonusActionUseDisplay(_session.GetCurrentTurn().CanUseBonusCard());
     }
 
     private void UpdateLaughFiller(float addition)
@@ -70,36 +67,27 @@ public class SessionUI : MonoBehaviour
         _openerTurnShownDebug.SetActive(turnIndex >= 0);
         _bodyTurnShownDebug.SetActive(turnIndex >= 1);
         _punchTurnShownDebug.SetActive(turnIndex >= 2);
+        
+        if(_bonusActionUse.localScale == Vector3.zero)
+        {
+            Invoke(nameof(ActivateBonusActionView), 4);
+        }
     }
 
-    private void UpdateBonusActionUseDisplay(bool isVisible)
+    private void UpdateBonusActionUseDisplay()
     {
-        if (!isVisible && !_bonusActionUse.activeSelf || isVisible && _bonusActionUse.activeSelf)
-        {
-            return;
-        }
-        
-        if (isVisible && _bonusActionAvailable)
-        {
-            _bonusActionAvailable = false;
-            Invoke(nameof(ActivateBonusActionView), 4);
-            return;
-        }
-
-        _bonusActionAvailable = true;
-        _bonusActionUse.SetActive(false);
+        _bonusActionUse.DOScale(0, 0.25f);
     }
 
     private void ActivateBonusActionView()
     {
-        _bonusActionUse.SetActive(true);
+        _bonusActionUse.DOScale(1, 0.25f);
     }
     
     private void ResetUI()
     {
         ApplyRoundTextUpdate();
         SetTurnShown(-1);
-        UpdateBonusActionUseDisplay(true);
     }
 
     private void ApplyRoundTextUpdate()

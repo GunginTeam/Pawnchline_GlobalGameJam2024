@@ -8,6 +8,7 @@ namespace UI.Canvas
         [SerializeField] private Button _settingsButton;
         
         [SerializeField] private GameObject _settingsPopUp;
+        [SerializeField] private GameObject _gameOverPopUp;
         
         protected override void Awake()
         {
@@ -19,6 +20,12 @@ namespace UI.Canvas
         {
             _settingsButton.onClick.RemoveAllListeners();
             base.OnDestroy();
+        }
+
+        public void HandleGameOver()
+        {
+            CreateView<GameOverPopUp>(_gameOverPopUp, CanvasLayer.PopUps)
+                .AddOnExitAction(NavigateToScene);
         }
 
         private void HandleSettings()

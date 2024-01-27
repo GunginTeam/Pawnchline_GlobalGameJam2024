@@ -5,7 +5,7 @@ using Zenject;
 
 public sealed class CreditsPopUp : BaseView
 {
-    [SerializeField] private TMP_Text _testTest;
+    [SerializeField] private TMP_Text _creditsText;
 
     private IRemoteVariablesService _remoteVariablesService;
     
@@ -19,6 +19,6 @@ public sealed class CreditsPopUp : BaseView
     {
         base.PreOpen();
 
-        _testTest.text = _remoteVariablesService.GetString("CARD_TEXT_0");
+        _creditsText.text = _remoteVariablesService.GetString("CREDITS_TEXT_0");
     }
 }

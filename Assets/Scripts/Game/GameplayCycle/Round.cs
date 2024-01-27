@@ -13,6 +13,7 @@ public class Round
 
     private Action _onRoundComplete;
     private Action<int> _onTurnComplete;
+    private Action _onBonusActionUsed;
 
     private int _currentTurnIndex;
     
@@ -21,15 +22,16 @@ public class Round
         _scoreService = scoreService;
     }
     
-    public void SetOnCompleteCallback(Action onRoundComplete, Action<int> onTurnComplete)
+    public void SetOnCompleteCallback(Action onRoundComplete, Action<int> onTurnComplete, Action onBonusActionUsed)
     {
         _onRoundComplete = onRoundComplete;
         _onTurnComplete = onTurnComplete;
+        _onBonusActionUsed = onBonusActionUsed;
     }
 
     public void StartTurn()
     {
-        CurrentTurn = new Turn(GetMultiplierFromTurnIndex(), _scoreService);
+        CurrentTurn = new Turn(GetMultiplierFromTurnIndex(), _scoreService, _onBonusActionUsed);
         CurrentTurn.SetOnCompleteCallback(EndTurn);
     }
 

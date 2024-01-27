@@ -9,11 +9,13 @@ public class Turn
     private bool _bonusActionUsed;
 
     private Action _onComplete;
+    private Action _onBonusActionUsed;
     
-    public Turn(float scoreMultiplier, IScoreService scoreService)
+    public Turn(float scoreMultiplier, IScoreService scoreService, Action onBonusActionUsed)
     {
         _scoreMultiplier = scoreMultiplier;
         _scoreService = scoreService;
+        _onBonusActionUsed = onBonusActionUsed;
         
         _scoreService.ActionCardPlayed += OnActionCardSelectedWrapper;
     }
@@ -29,7 +31,12 @@ public class Turn
     }
 
     public bool CanUseBonusCard() => !_bonusActionUsed;
-    public void OnBonusCardSelected() => _bonusActionUsed = true;
+    
+    public void OnBonusCardSelected()
+    {
+        _bonusActionUsed = true;
+        _onBonusActionUsed.Invoke();
+    }
 
     private void OnActionCardSelectedWrapper(JokeData _) => OnActionCardSelected();
 
