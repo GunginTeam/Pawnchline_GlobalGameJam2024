@@ -40,11 +40,6 @@ public class PlayerHand : MonoBehaviour
 
     private void GetInitialTurnHand()
     {
-        var card = _cardsService.GetBonusCardThis();
-        card.SetOnSelectCard(SetCurrentCard, CheckUsePreviousCard);
-        var cardb = _cardsService.GetBonusCardThis();
-        cardb.SetOnSelectCard(SetCurrentCard, CheckUsePreviousCard);
-        
         for (var index = 0; index < _initialCards; index++)
         {
             var forceActionCard = index < _initialForcedActionCards;

@@ -8,4 +8,5 @@ public interface IScoreService
     void PlayActionCard(List<HumorType> cardHumor);
     void SetScoreMultiplier(float multiplier);
     void SetReactionScore(int score);
+    void SetIrony();
 }

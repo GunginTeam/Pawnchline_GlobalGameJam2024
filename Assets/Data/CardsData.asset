@@ -46,4 +46,3 @@ MonoBehaviour:
     HummorTypes: 0300000002000000
   BonusCards:
   - {fileID: 7304111848577325236, guid: 35414cb212155407e8d51ebdb0ccc63c, type: 3}
-  - {fileID: 7304111848577325236, guid: 967e1a40cb41943ddaab114848cd82dd, type: 3}
