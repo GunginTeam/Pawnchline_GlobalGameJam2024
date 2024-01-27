@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 public class ScoreService : IScoreService
 {
-    public event Action<List<HumorType>> ActionCardPlayed;
+    public event Action<JokeData> ActionCardPlayed;
     public void PlayActionCard(List<HumorType> cardHumor)
     {
-        ActionCardPlayed?.Invoke(cardHumor);
+        ActionCardPlayed?.Invoke(new JokeData(cardHumor, false));
     }
 
     public void SetScoreMultiplier(float multiplier)

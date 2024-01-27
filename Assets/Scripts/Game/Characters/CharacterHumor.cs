@@ -7,8 +7,12 @@ public class CharacterHumor
 {
     public List<Humor> Humors = new ();
     
-    public int ComputeHumorReaction(List<HumorType> humorTypes)
+    public int ComputeHumorReaction(JokeData jokeData)
     {
-        return humorTypes.Sum(humor => Humors.Find(item => item.Type == humor).Value);
+        foreach (var humor in jokeData.JokeHumor)
+        {
+            var humorScore = Humors.Find(item => item.Type == humor).Value;
+        }
+        return jokeData.JokeHumor.Sum(humor => Humors.Find(item => item.Type == humor).Value);
     }
 }

@@ -31,7 +31,7 @@ public class Turn
     public bool CanUseBonusCard() => !_bonusActionUsed;
     public void OnBonusCardSelected() => _bonusActionUsed = true;
 
-    private void OnActionCardSelectedWrapper(List<HumorType> _) => OnActionCardSelected();
+    private void OnActionCardSelectedWrapper(JokeData _) => OnActionCardSelected();
 
     private void OnActionCardSelected()
     {
