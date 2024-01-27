@@ -424,30 +424,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2492366945514708175, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2492366945514708175, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2492366945514708175, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3200162038333962550, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 3200162038468269555, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 3200162039478778552, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.22
-      objectReference: {fileID: 0}
     - target: {fileID: 3584391127980527709, guid: 445202403f7436d4b92e231d5908165f, type: 3}
       propertyPath: m_Name
       value: Scenario
@@ -494,78 +470,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3584391127980527710, guid: 445202403f7436d4b92e231d5908165f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454867924272374154, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454867924272374154, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454867924272374154, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454867925056414319, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_FlipX
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454867925056414319, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454867925056414319, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454867925056414319, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454867925668817741, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454867925668817741, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454867925668817741, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454867926067143137, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_FlipX
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454867926067143137, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454867926067143137, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454867926067143137, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454867926201257252, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_FlipX
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454867926201257252, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454867926201257252, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454867926201257252, guid: 445202403f7436d4b92e231d5908165f, type: 3}
-      propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
