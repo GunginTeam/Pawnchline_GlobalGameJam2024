@@ -6,7 +6,8 @@ public class Session : MonoBehaviour
 {
     const int AmountOfRounds = 3;
 
-    public Action OnRoundOver;
+    public event Action<int> OnRoundOver;
+    public event Action<int> OnTurnOver;
 
     private IScoreService _scoreService;
     
@@ -20,6 +21,7 @@ public class Session : MonoBehaviour
         _scoreService = scoreService;
     }
 
+    public Round GetCurrentRound() => _currentRound;
     public Turn GetCurrentTurn() => _currentRound.CurrentTurn;
 
     private void Start()
@@ -32,15 +34,18 @@ public class Session : MonoBehaviour
     private void StartRound()
     {
         _currentRound = new Round(_scoreService);
-        _currentRound.SetOnCompleteCallback(EndRound);
+        _currentRound.SetOnCompleteCallback(EndRound, EndTurn);
         _currentRound.StartTurn();
     }
 
+    private void EndTurn(int turnIndex)
+    {
+        OnTurnOver.Invoke(turnIndex);
+    }
     private void EndRound()
     {
-        OnRoundOver.Invoke();
-
         _currentRoundIndex++;
+        OnRoundOver.Invoke(_currentRoundIndex);
 
         if (_currentRoundIndex >= AmountOfRounds)
         {
