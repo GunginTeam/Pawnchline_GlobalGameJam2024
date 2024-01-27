@@ -364,6 +364,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game_Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5011106357289714086, guid: adf3bbac1b6d97641ae0d01966137209, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8702979486304855276, guid: adf3bbac1b6d97641ae0d01966137209, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -647,6 +651,10 @@ PrefabInstance:
     - target: {fileID: 7356642131807545287, guid: 445202403f7436d4b92e231d5908165f, type: 3}
       propertyPath: m_SortingOrder
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7883784143884630620, guid: 445202403f7436d4b92e231d5908165f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.51
       objectReference: {fileID: 0}
     - target: {fileID: 8331644570851191369, guid: 445202403f7436d4b92e231d5908165f, type: 3}
       propertyPath: m_SortingOrder
