@@ -26,7 +26,7 @@ public class ScoreService : IScoreService
 
     public void SpreadScore()
     {
-        var currentTurnScore = (_reactionScore * _roundMultiplier)/5;
+        var currentTurnScore = (_reactionScore * _roundMultiplier)/7;
         Debug.Log("Increasing meter by: "+currentTurnScore);
         Debug.Log("The reaction score was: "+_reactionScore);
         Debug.Log("The multiplier was: "+_roundMultiplier);
