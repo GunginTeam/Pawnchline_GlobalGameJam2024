@@ -54,22 +54,15 @@ public class PlayerHand : MonoBehaviour
 
     private void GetInitialTurnHand()
     {
-        for (int i = 0; i < 5; i++)
+        for (var index = 0; index < InitialCards; index++)
         {
-            var card = _cardsService.GetBonusCardWhapper();
-            card.SetOnSelectCard(SetCurrentCard, CheckUsePreviousCard);
-            _handCards.Add(card);
-        }
+            var forceActionCard = index < InitialForcedActionCards;
         
-        // for (var index = 0; index < InitialCards; index++)
-        // {
-        //     var forceActionCard = index < InitialForcedActionCards;
-        //
-        //     if (FetchCard(forceActionCard).IsAction)
-        //     {
-        //         _currentActionCards++;
-        //     }
-        // }
+            if (FetchCard(forceActionCard).IsAction)
+            {
+                _currentActionCards++;
+            }
+        }
     }
 
     private void SetCurrentCard(BaseCard card)
