@@ -2,25 +2,28 @@ using System;
 using Services.Runtime.AudioService;
 using Services.Runtime.RemoteVariables;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 public class GameInstaller : MonoInstaller
 {
     [SerializeField] private CardsData _cardsData;
-
-    [FormerlySerializedAs("_charactersSpritesModel")] [SerializeField]
-    private CharactersData _charactersData;
-
+    [SerializeField] private CharactersData _charactersData;
     [SerializeField] private ReactionsModel _reactionsModel;
 
     public override void InstallBindings()
     {
         Container.Bind<IInstancer>().To<Instancer>().AsSingle();
 
+        InstallPackages();
+        
         InstallServices();
         InstallModels();
-        InstallPackages();
+    }
+
+    private void InstallPackages()
+    {
+        Container.Bind<IAudioService>().To<AudioService>().AsSingle().NonLazy();
+        Container.Bind<IRemoteVariablesService>().To<RemoteVariablesService>().AsSingle().NonLazy();
     }
 
     private void InstallModels()
@@ -35,16 +38,5 @@ public class GameInstaller : MonoInstaller
         Container.Bind<IScoreService>().To<ScoreService>().AsSingle();
         Container.Bind<ICardsService>().To<CardsService>().AsSingle();
         Container.Bind<ICharacterService>().To<CharacterService>().AsSingle();
-    }
-
-    private void InstallPackages()
-    {
-        Container.Bind<IAudioService>().To<AudioService>()
-            .AsSingle()
-            .NonLazy();
-
-        Container.Bind<IRemoteVariablesService>().To<RemoteVariablesService>()
-            .AsSingle()
-            .NonLazy();
     }
 }
