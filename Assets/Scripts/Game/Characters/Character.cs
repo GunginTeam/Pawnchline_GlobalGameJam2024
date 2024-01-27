@@ -66,10 +66,10 @@ public class Character : MonoBehaviour
     private IEnumerator AnimateReaction(Sprite reactionSprite)
     {
         var spriteRenderer = _reactionObject.GetComponent<SpriteRenderer>();
-        spriteRenderer.DOFade(1, 0);
+        spriteRenderer.DOFade(0.8f, 0);
         yield return new WaitForSeconds(Random.Range(0f, 0.5f));
         spriteRenderer.sprite = reactionSprite;
-        _reactionObject.transform.DOScale(0, 0.5f).From();
+        _reactionObject.transform.DOScale(0, 0.5f).From().SetEase(Ease.OutBack);
         yield return new WaitForSeconds(Random.Range(3f, 3.5f));
         spriteRenderer.DOFade(0, 0.5f).OnComplete(() => spriteRenderer.sprite = null);
     }

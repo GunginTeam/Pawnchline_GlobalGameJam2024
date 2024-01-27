@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ReactionList:
   - Value: -2
-    Sprite: {fileID: 1932124413, guid: da1d37fbeb8d8854d8bbc96f42127039, type: 3}
+    Sprite: {fileID: 504849386, guid: 2c36fe0ae1ba57a47919807345708ea2, type: 3}
   - Value: -1
-    Sprite: {fileID: -1697678997, guid: da1d37fbeb8d8854d8bbc96f42127039, type: 3}
+    Sprite: {fileID: -1269675104, guid: 2c36fe0ae1ba57a47919807345708ea2, type: 3}
   - Value: 0
-    Sprite: {fileID: 556392416, guid: da1d37fbeb8d8854d8bbc96f42127039, type: 3}
+    Sprite: {fileID: -2009982498, guid: 2c36fe0ae1ba57a47919807345708ea2, type: 3}
   - Value: 1
-    Sprite: {fileID: -308484082, guid: da1d37fbeb8d8854d8bbc96f42127039, type: 3}
+    Sprite: {fileID: -328458852, guid: 2c36fe0ae1ba57a47919807345708ea2, type: 3}
   - Value: 2
-    Sprite: {fileID: -1683402482, guid: da1d37fbeb8d8854d8bbc96f42127039, type: 3}
+    Sprite: {fileID: -48416106, guid: 2c36fe0ae1ba57a47919807345708ea2, type: 3}
