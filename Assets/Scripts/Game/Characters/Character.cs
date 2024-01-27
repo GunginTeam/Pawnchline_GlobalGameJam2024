@@ -19,7 +19,7 @@ public class Character : MonoBehaviour
     {
         _reactionsModel = reactionsModel;
     }
-    
+
     public void Initialize(CharacterVisualData visualData, CharacterHumor humor, HatSprite hatSprite)
     {
         _humorPreferences = humor;
@@ -43,7 +43,7 @@ public class Character : MonoBehaviour
         StartCoroutine(AnimateReaction(reactionSprite));
         return totalHumor;
     }
-    
+
     private void PutOnTheHat(CharacterVisualData visualData, HatSprite hatSprite)
     {
         var position = visualData._hatPosition;
@@ -61,10 +61,10 @@ public class Character : MonoBehaviour
     {
         var spriteRenderer = _reactionObject.GetComponent<SpriteRenderer>();
         spriteRenderer.DOFade(1, 0);
-        yield return new WaitForSeconds(Random.Range(0f, 1f));
+        yield return new WaitForSeconds(Random.Range(0f, 0.5f));
         spriteRenderer.sprite = reactionSprite;
         _reactionObject.transform.DOScale(0, 0.5f).From();
-        yield return new WaitForSeconds(Random.Range(3f,4f));
+        yield return new WaitForSeconds(Random.Range(3f, 3.5f));
         spriteRenderer.DOFade(0, 0.5f).OnComplete(() => spriteRenderer.sprite = null);
     }
 }

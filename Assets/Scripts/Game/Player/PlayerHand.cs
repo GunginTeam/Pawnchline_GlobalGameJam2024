@@ -44,7 +44,7 @@ public class PlayerHand : MonoBehaviour
         card.SetOnSelectCard(SetCurrentCard, CheckUsePreviousCard);
         var cardb = _cardsService.GetBonusCardThis();
         cardb.SetOnSelectCard(SetCurrentCard, CheckUsePreviousCard);
-        
+
         for (var index = 0; index < _initialCards; index++)
         {
             var forceActionCard = index < _initialForcedActionCards;
@@ -86,7 +86,17 @@ public class PlayerHand : MonoBehaviour
                 }
             }
 
-            _currentCard.Consume(()=> HideHand(false));
+            _currentCard.Consume(isActionCard =>
+            {
+                if (isActionCard)
+                {
+                    Invoke(nameof(DelayedShowHand), 4);
+                }
+                else
+                {
+                    HideHand(false);
+                }
+            });
 
             FetchCard(_currentActionCards == 0);
         }
@@ -97,6 +107,8 @@ public class PlayerHand : MonoBehaviour
 
         _currentCard = null;
     }
+
+    private void DelayedShowHand() => HideHand(false);
 
     private BaseCard FetchCard(bool forceActionCard)
     {
