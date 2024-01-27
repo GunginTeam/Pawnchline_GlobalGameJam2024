@@ -2,7 +2,6 @@ using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Zenject;
 using Image = UnityEngine.UI.Image;
 
@@ -53,6 +52,8 @@ public class SessionUI : MonoBehaviour
 
     private void UpdateLaughFiller(float addition)
     {
+        
+        _laughFiller.transform.parent.DOShakeScale(0.5f, 0.25f);
         _laughFiller.fillAmount += addition;
     }
 
@@ -96,10 +97,7 @@ public class SessionUI : MonoBehaviour
         if (_currentRoundIndex + 1 < 4)
         {
             _roundText.text = $"ROUND {_currentRoundIndex + 1}";
-            _roundText.transform.parent.DOScale(Vector3.one * 1.25f, 0.25f).SetEase(Ease.OutBack).OnComplete(() =>
-            {
-                _roundText.transform.parent.DOScale(Vector3.one, 0.15f);
-            });
+            _roundText.transform.parent.DOShakeScale(0.5f, 0.5f);
 
             SetTurnShown(-1);
         }
