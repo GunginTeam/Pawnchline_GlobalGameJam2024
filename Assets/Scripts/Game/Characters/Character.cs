@@ -30,12 +30,7 @@ public class Character : MonoBehaviour
             PutOnTheHat(visualData, hatSprite);
         }
     }
-
-    public CharacterHumor GetHumor()
-    {
-        return _humorPreferences;
-    }
-
+    
     public int ReactToCard(JokeData jokeData)
     {
         var totalHumor = _humorPreferences.ComputeHumorReaction(jokeData);
