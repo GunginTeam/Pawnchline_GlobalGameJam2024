@@ -473,6 +473,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 63141453279091412, guid: c530d5667cf53f446aea46299b4ec323, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4550180332042242073, guid: c530d5667cf53f446aea46299b4ec323, type: 3}
       propertyPath: m_Name
       value: Game_Canvas
@@ -483,7 +487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7487501944288093612, guid: c530d5667cf53f446aea46299b4ec323, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8120343853413095140, guid: c530d5667cf53f446aea46299b4ec323, type: 3}
       propertyPath: m_Pivot.x

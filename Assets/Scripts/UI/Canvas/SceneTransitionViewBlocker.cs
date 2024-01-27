@@ -17,7 +17,7 @@ namespace UI.Canvas
         private void TransitionOff(Action onComplete = null)
         {
             _interactionBlocker.blocksRaycasts = true;
-        
+            
             _viewBlocker.DOMoveY(Screen.height, 1).SetEase(Ease.OutBounce)
                 .OnComplete(() =>
                 {
@@ -29,7 +29,7 @@ namespace UI.Canvas
         public void TransitionOn(Action onComplete = null)
         {
             _interactionBlocker.blocksRaycasts = true;
-
+            
             _viewBlocker.DOMoveY(0, 1).SetEase(Ease.OutBounce)
                 .OnComplete(() =>
                 {

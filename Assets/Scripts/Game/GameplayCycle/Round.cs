@@ -38,7 +38,7 @@ public class Round
     private void EndTurn()
     {
         CurrentTurn.Dispose();
-        _onTurnComplete(_currentTurnIndex);
+        _onTurnComplete.Invoke(_currentTurnIndex);
 
         _currentTurnIndex++;
         
