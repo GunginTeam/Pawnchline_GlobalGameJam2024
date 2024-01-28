@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Services.Runtime.AudioService;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -15,12 +16,14 @@ public sealed class GameOverPopUp : BaseView
     private Image _laughFiller;
     
     private IScoreService _scoreService;
+    private IAudioService _audioService;
     private Action _onExit;
 
     [Inject]
-    public void Construct(IScoreService scoreService)
+    public void Construct(IScoreService scoreService, IAudioService audioService)
     {
         _scoreService = scoreService;
+        _audioService = audioService;
     }
 
     public void AddOnExitAction(Action onExit)
@@ -41,7 +44,7 @@ public sealed class GameOverPopUp : BaseView
     protected override void PostOpen()
     {
         base.PostOpen();
-
+        _audioService.PlaySFX("GameOver");
         StartCoroutine(ShowReactions());
     }
 

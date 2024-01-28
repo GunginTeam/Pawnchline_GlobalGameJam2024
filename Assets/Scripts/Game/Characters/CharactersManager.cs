@@ -9,11 +9,9 @@ using Random = UnityEngine.Random;
 public class CharactersManager : MonoBehaviour
 {
     [SerializeField] private List<Character> _characters;
-    [Range(0f,1f)]
-    [SerializeField] private float _hatChance;
-    [SerializeField]
-    private int _animalTypeAmount;
-    
+    [Range(0f, 1f)] [SerializeField] private float _hatChance;
+    [SerializeField] private int _animalTypeAmount;
+
     private CharactersData _charactersData;
     private IScoreService _scoreService;
 
@@ -34,19 +32,20 @@ public class CharactersManager : MonoBehaviour
     private void OnActionCardPlayed(JokeData jokeData)
     {
         VisualReaction();
-        
+
         var reactionScore = _characters.Sum(character => character.ReactToCard(jokeData));
         var normalizedScore = reactionScore / 10;
         _scoreService.SetReactionScore(normalizedScore);
     }
-    
+
     private void Start()
     {
         foreach (var character in _characters)
         {
             var visualData = GetCharacterSpriteData();
             var hasHat = Random.Range(0f, 1f) <= _hatChance;
-            character.Initialize(visualData, _charactersData.GetRandomHumor(), hasHat ? _charactersData.GetHatSprite() : null);
+            character.Initialize(visualData, _charactersData.GetRandomHumor(),
+                hasHat ? _charactersData.GetHatSprite() : null);
             character.transform.DOScaleY(0, 0);
         }
 
@@ -66,9 +65,14 @@ public class CharactersManager : MonoBehaviour
     {
         foreach (var character in _characters)
         {
-            var range = ((float)Random.Range(20, 80) / 100);
-            character.transform.DOShakePosition(0.5f, Vector3.up * range).SetEase(Ease.OutBack);
+            ShakeCharacter(character.transform);
         }
+    }
+
+    private static void ShakeCharacter(Transform character)
+    {
+        var range = ((float)Random.Range(20, 80) / 100);
+        character.DOShakePosition(0.5f, Vector3.up * range).SetEase(Ease.OutBack);
     }
 
     private CharacterVisualData GetCharacterSpriteData()
