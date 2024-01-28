@@ -76,5 +76,6 @@ public class Character : MonoBehaviour
         _reactionObject.transform.DOScale(0, 0.5f).From().SetEase(Ease.OutBack);
         yield return new WaitForSeconds(Random.Range(3f, 3.5f));
         spriteRenderer.DOFade(0, 0.5f).OnComplete(() => spriteRenderer.sprite = null);
+        //spriteRenderer.transform.DOMoveY(1, 0.5f).SetRelative().SetEase(Ease.InBack);
     }
 }
