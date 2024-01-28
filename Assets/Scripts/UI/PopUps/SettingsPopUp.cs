@@ -21,8 +21,9 @@ public class SettingsPopUp : BaseView
         _musicAudio.onClick.AddListener(HandleMuteMusic);
         _sfxAudio.onClick.AddListener(HandleMuteSFX);
         
-        _musicMutedDisplay.SetActive(PlayerPrefs.GetInt("MusicMuted") == 1);
-        _sfxMutedDisplay.SetActive(PlayerPrefs.GetInt("SFXMuted") == 1);
+        _musicMutedDisplay.SetActive(PlayerPrefs.GetInt("MusicMuted") == 0);
+        _sfxMutedDisplay.SetActive(PlayerPrefs.GetInt("SFXMuted") == 0);
+        
     }
 
     protected void OnDestroy()
