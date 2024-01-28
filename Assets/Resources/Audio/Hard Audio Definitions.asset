@@ -77,3 +77,5 @@ MonoBehaviour:
     AudioFile: {fileID: 8300000, guid: 0419e5dc3e1bd471099abaf3e890e754, type: 3}
   - AudioKey: ButtonShort
     AudioFile: {fileID: 8300000, guid: 0acadffce67f948c9b4a1122d2f7c941, type: 3}
+  - AudioKey: WrongCard
+    AudioFile: {fileID: 8300000, guid: 04084c182a2984f5aa8d7800777ad8c5, type: 3}
