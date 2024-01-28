@@ -758,6 +758,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1548157581276378424, guid: 898d53c8267334636874f76b53fb68bf, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2118743928790175412, guid: 898d53c8267334636874f76b53fb68bf, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -849,6 +853,26 @@ PrefabInstance:
     - target: {fileID: 6883199237174310156, guid: 898d53c8267334636874f76b53fb68bf, type: 3}
       propertyPath: m_Name
       value: GameOver_BasePopUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7074941162324248012, guid: 898d53c8267334636874f76b53fb68bf, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7074941162324248012, guid: 898d53c8267334636874f76b53fb68bf, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7074941162324248012, guid: 898d53c8267334636874f76b53fb68bf, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7074941162324248012, guid: 898d53c8267334636874f76b53fb68bf, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7074941162324248012, guid: 898d53c8267334636874f76b53fb68bf, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7536250920604010223, guid: 898d53c8267334636874f76b53fb68bf, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
