@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -44,6 +46,18 @@ public class CharactersManager : MonoBehaviour
             var visualData = GetCharacterSpriteData();
             var hasHat = Random.Range(0f, 1f) <= _hatChance;
             character.Initialize(visualData, _charactersData.GetRandomHumor(), hasHat ? _charactersData.GetHatSprite() : null);
+            character.transform.DOScaleY(0, 0);
+        }
+
+        StartCoroutine(DisplayCharacters());
+    }
+
+    private IEnumerator DisplayCharacters()
+    {
+        foreach (var character in _characters)
+        {
+            character.transform.DOScaleY(1, 0.5f).SetEase(Ease.OutBack);
+            yield return new WaitForSeconds(0.15f);
         }
     }
 
