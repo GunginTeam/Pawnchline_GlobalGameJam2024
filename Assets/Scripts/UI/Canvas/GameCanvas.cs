@@ -47,7 +47,9 @@ namespace UI.Canvas
 
         private void ExitGame()
         {
+            _audioService.StopMusic("MusicLoop", 0.5f);
             _audioService.StopMusic("MusicIntro", 0.5f);
+            
             NavigateToScene();
         }
         
