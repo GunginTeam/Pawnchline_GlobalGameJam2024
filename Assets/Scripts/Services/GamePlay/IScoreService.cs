@@ -13,4 +13,5 @@ public interface IScoreService
     void SetScoreMultiplier(float multiplier);
     void SetReactionScore(float score);
     void SetIrony();
+    float GetTotalScore();
 }

@@ -51,7 +51,8 @@ public class SessionUI : MonoBehaviour
 
     private void UpdateLaughFiller(float addition)
     {
-        _laughFiller.transform.parent.DOShakeScale(0.5f, 0.25f);
+        //Commented due to it modifying the scale permanently
+        //_laughFiller.transform.parent.DOShakeScale(0.5f, 0.25f);
         _laughFiller.fillAmount += addition;
     }
 

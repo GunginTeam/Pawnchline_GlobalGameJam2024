@@ -13,6 +13,7 @@ public class ScoreService : IScoreService
     
     private float _roundMultiplier=1;
     private float _reactionScore;
+    private float _totalScore;
 
     public void PlayActionCard(List<HumorType> cardHumor)
     {
@@ -28,6 +29,7 @@ public class ScoreService : IScoreService
     public void SpreadScore()
     {
         var currentTurnScore = (_reactionScore * _roundMultiplier)/7;
+        _totalScore += currentTurnScore;
         UpdateUI.Invoke(currentTurnScore);
         
         _roundMultiplier = 1;
@@ -47,5 +49,10 @@ public class ScoreService : IScoreService
     public void SetIrony()
     {
         _withIrony = true;
+    }
+
+    public float GetTotalScore()
+    {
+        return _totalScore;
     }
 }

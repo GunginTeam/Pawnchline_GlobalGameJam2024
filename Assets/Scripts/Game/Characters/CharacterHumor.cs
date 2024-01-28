@@ -25,6 +25,6 @@ public class CharacterHumor
             totalHumor += humorScore;
         }
 
-        return jokesAffected != 0?totalHumor/jokesAffected*2:0;
+        return jokesAffected != 0?(float)totalHumor/(jokesAffected):0;
     }
 }

@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -6,6 +8,9 @@ using Zenject;
 public sealed class GameOverPopUp : BaseView
 {
     [SerializeField] private Button _exitButton;
+
+    [SerializeField]
+    private Image _laughFiller;
     
     private IScoreService _scoreService;
     private Action _onExit;
@@ -24,6 +29,12 @@ public sealed class GameOverPopUp : BaseView
     private void Awake()
     {
         _exitButton.onClick.AddListener(HandleExit);
+        PresentPopup();
+    }
+
+    private void PresentPopup()
+    {
+        StartCoroutine(WaitOneFrameAndFill());
     }
 
     private void OnDestroy()
@@ -34,5 +45,12 @@ public sealed class GameOverPopUp : BaseView
     private void HandleExit()
     {
         Close(()=> _onExit.Invoke());
+    }
+
+    IEnumerator WaitOneFrameAndFill()
+    {
+        yield return null;
+        _laughFiller.transform.parent.DOShakeScale(0.5f, 0.25f);
+        _laughFiller.fillAmount += _scoreService.GetTotalScore();
     }
 }
