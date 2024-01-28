@@ -40,6 +40,7 @@ namespace UI.Canvas
 
         private void HandleSettings()
         {
+            PlayLongButton();
             CreateView<GameSettingsPopUp>(_settingsPopUp, CanvasLayer.PopUps)
                 .AddOnExitAction(ExitGame);
         }
@@ -49,5 +50,7 @@ namespace UI.Canvas
             _audioService.StopMusic("MusicIntro", 0.5f);
             NavigateToScene();
         }
+        
+        private void PlayLongButton() => _audioService.PlaySFX("ButtonLong");
     }
 }

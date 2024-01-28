@@ -1,4 +1,3 @@
-using System;
 using Services.Runtime.AudioService;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,7 +15,7 @@ namespace UI.Canvas
         [SerializeField] private GameObject _settingsPopUp;
         [SerializeField] private GameObject _creditsPopUp;
         [SerializeField] private GameObject _tutorialPopUp;
-        
+
         private IAudioService _audioService;
 
         [Inject]
@@ -24,7 +23,7 @@ namespace UI.Canvas
         {
             _audioService = audioService;
         }
-        
+
         protected override void Awake()
         {
             _playButton.onClick.AddListener(HandlePlay);
@@ -40,7 +39,7 @@ namespace UI.Canvas
             _settingsButton.onClick.RemoveAllListeners();
             _creditsButton.onClick.RemoveAllListeners();
             _tutorialButton.onClick.RemoveAllListeners();
-            
+
             base.OnDestroy();
         }
 
@@ -49,25 +48,29 @@ namespace UI.Canvas
             _audioService.PlayMusic("MenuMusic");
         }
 
+        private void PlayLongButton() => _audioService.PlaySFX("ButtonLong");
+
         private void HandlePlay()
         {
             _audioService.StopMusic("MenuMusic", 0.5f);
-
             NavigateToScene();
         }
 
         private void HandleSettings()
         {
+            PlayLongButton();
             CreateView<SettingsPopUp>(_settingsPopUp, CanvasLayer.PopUps);
         }
 
         private void HandleCredits()
         {
+            PlayLongButton();
             CreateView<CreditsPopUp>(_creditsPopUp, CanvasLayer.PopUps);
         }
 
         private void HandleTutorial()
         {
+            PlayLongButton();
             CreateView<TutorialPopup>(_tutorialPopUp, CanvasLayer.PopUps);
         }
     }
