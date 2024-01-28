@@ -60,32 +60,6 @@ public class AudioManager : MonoBehaviour
         soundClipString += Random.Range(1, 3);
         _audioService.PlaySFX(soundClipString);
     }
-
-    private void Start()
-    {
-        PlayGameTheme();
-    }
-
-    private void OnDisable()
-    {
-        _audioService.StopMusic("MusicIntro", 0.5f);
-    }
-
-    void PlayGameTheme()
-    {
-        StartCoroutine(PlayMusicDelayed());
-    }
-
-    IEnumerator PlayMusicDelayed()
-    {
-        yield return new WaitForSeconds(2.25f);
-
-        _audioService.PlayMusic("MusicIntro");
-        yield return new WaitForSeconds(81.25f);
-
-        _audioService.StopMusic("MusicIntro");
-        _audioService.PlayMusic("MusicLoop");
-    }
     
     IEnumerator LowerMusicVolumeFaded()
     {
