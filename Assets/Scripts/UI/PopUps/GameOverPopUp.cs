@@ -28,6 +28,16 @@ public sealed class GameOverPopUp : BaseView
         _onExit = onExit;
     }
 
+    protected override void PreOpen()
+    {
+        base.PreOpen();
+        
+        foreach (var reaction in _reactions)
+        {
+            reaction.DOScale(Vector3.zero, 0f);
+        }
+    }
+
     protected override void PostOpen()
     {
         base.PostOpen();

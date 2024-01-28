@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
@@ -34,6 +33,8 @@ public class CharactersManager : MonoBehaviour
 
     private void OnActionCardPlayed(JokeData jokeData)
     {
+        VisualReaction();
+        
         var reactionScore = _characters.Sum(character => character.ReactToCard(jokeData));
         var normalizedScore = reactionScore / 10;
         _scoreService.SetReactionScore(normalizedScore);
@@ -58,6 +59,15 @@ public class CharactersManager : MonoBehaviour
         {
             character.transform.DOScaleY(1, 0.5f).SetEase(Ease.OutBack);
             yield return new WaitForSeconds(0.15f);
+        }
+    }
+
+    private void VisualReaction()
+    {
+        foreach (var character in _characters)
+        {
+            var range = ((float)Random.Range(20, 80) / 100);
+            character.transform.DOShakePosition(0.5f, Vector3.up * range).SetEase(Ease.OutBack);
         }
     }
 
