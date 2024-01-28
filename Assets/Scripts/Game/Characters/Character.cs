@@ -29,6 +29,10 @@ public class Character : MonoBehaviour
         _renderer.sprite = _visualData._defaultCharacter;
         if(_mask!=null)
             _mask.sprite = _visualData._defaultCharacter;
+
+        var pos = visualData._hatPosition;
+        pos.y += 3f;
+        _reactionObject.transform.localPosition = pos;
         
         if (hatSprite != null)
         {
