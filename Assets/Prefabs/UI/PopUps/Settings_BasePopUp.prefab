@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e652413812a4cc246a19e5508745cd32, type: 3}
+  m_Sprite: {fileID: -1234297141, guid: e652413812a4cc246a19e5508745cd32, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ec26b9015718a6e488b4d6169e89e065, type: 3}
+  m_Sprite: {fileID: -506227745, guid: ec26b9015718a6e488b4d6169e89e065, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -377,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 358437876844846937, guid: 9687f7c04e8e94edb82b3354d47a719e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 270
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 358437876844846937, guid: 9687f7c04e8e94edb82b3354d47a719e, type: 3}
       propertyPath: m_SizeDelta.y
@@ -478,7 +478,7 @@ PrefabInstance:
     - target: {fileID: 2514848544827435976, guid: 9687f7c04e8e94edb82b3354d47a719e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8e071cb70f2ccec4ba9d9b0ceb944b9a, type: 3}
+      objectReference: {fileID: 1623803580, guid: 8e071cb70f2ccec4ba9d9b0ceb944b9a, type: 3}
     - target: {fileID: 2514848544827435976, guid: 9687f7c04e8e94edb82b3354d47a719e, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -536,7 +536,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 20
+  m_PixelsPerUnitMultiplier: 40
 --- !u!224 &1641661878702779742 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1863978114167105087, guid: 9687f7c04e8e94edb82b3354d47a719e, type: 3}
@@ -689,7 +689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 358437876844846937, guid: 9687f7c04e8e94edb82b3354d47a719e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 270
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 358437876844846937, guid: 9687f7c04e8e94edb82b3354d47a719e, type: 3}
       propertyPath: m_SizeDelta.y
@@ -697,7 +697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 358437876844846937, guid: 9687f7c04e8e94edb82b3354d47a719e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 7
+      value: 2.8316
       objectReference: {fileID: 0}
     - target: {fileID: 358437876844846937, guid: 9687f7c04e8e94edb82b3354d47a719e, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -794,7 +794,7 @@ PrefabInstance:
     - target: {fileID: 2514848544827435976, guid: 9687f7c04e8e94edb82b3354d47a719e, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 1ce1ad1a6f4b0df46a63491f39cde0f3, type: 3}
+      objectReference: {fileID: -937992301, guid: 1ce1ad1a6f4b0df46a63491f39cde0f3, type: 3}
     - target: {fileID: 2514848544827435976, guid: 9687f7c04e8e94edb82b3354d47a719e, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -857,4 +857,4 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 20
+  m_PixelsPerUnitMultiplier: 40

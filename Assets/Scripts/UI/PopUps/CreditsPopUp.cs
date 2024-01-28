@@ -14,11 +14,11 @@ public sealed class CreditsPopUp : BaseView
     {
         _remoteVariablesService = remoteVariablesService;
     }
-
-    protected override void PreOpen()
-    {
-        base.PreOpen();
-
-        _creditsText.text = _remoteVariablesService.GetString("CREDITS_TEXT_0");
-    }
+    //
+    // protected override void PreOpen()
+    // {
+    //     base.PreOpen();
+    //
+    //     _creditsText.text = _remoteVariablesService.GetString("CREDITS_TEXT_0");
+    // }
 }
