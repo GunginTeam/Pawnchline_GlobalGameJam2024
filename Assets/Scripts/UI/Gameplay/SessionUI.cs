@@ -8,7 +8,7 @@ public class SessionUI : MonoBehaviour
 {
     [SerializeField] private TMP_Text _roundText;
 
-    [SerializeField] private Image _laughFiller;
+    public Image _laughFiller;
     [SerializeField] private Image _bonusActionUse;
 
     [SerializeField] private Image _openerTurnShownDebug;
@@ -26,6 +26,7 @@ public class SessionUI : MonoBehaviour
         _scoreService = scoreService;
     }
 
+    
     private void Awake()
     {
         _session = FindObjectOfType<Session>();

@@ -81,7 +81,8 @@ public sealed class GameOverPopUp : BaseView
     IEnumerator WaitOneFrameAndFill()
     {
         yield return null;
-        _laughFiller.transform.parent.DOShakeScale(0.5f, 0.25f);
-        _laughFiller.fillAmount += _scoreService.GetTotalScore();
+        _laughFiller.fillAmount = FindObjectOfType<SessionUI>()._laughFiller.fillAmount;
+        // _laughFiller.transform.parent.DOShakeScale(0.5f, 0.25f);
+        // += _scoreService.GetTotalScore();
     }
 }
