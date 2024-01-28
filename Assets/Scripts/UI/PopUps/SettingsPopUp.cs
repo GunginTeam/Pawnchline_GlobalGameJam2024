@@ -35,13 +35,13 @@ public class SettingsPopUp : BaseView
     {
         var muted = _audioService.MuteMusic();
 
-        _musicMutedDisplay.SetActive(!muted);
+        _musicMutedDisplay.SetActive(muted);
     }
 
     private void HandleMuteSFX()
     {
         var muted = _audioService.MuteSFX();
 
-        _sfxMutedDisplay.SetActive(!muted);
+        _sfxMutedDisplay.SetActive(muted);
     }
 }
