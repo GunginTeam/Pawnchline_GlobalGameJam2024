@@ -129,6 +129,7 @@ public class PlayerHand : MonoBehaviour
                 }
                 else
                 {
+                    _audioService.PlaySFX("WrongCard");
                     HideHand(false);
                     return;
                 }
