@@ -61,3 +61,11 @@ MonoBehaviour:
     AudioFile: {fileID: 8300000, guid: 37432d25f1c5d4fca9c6d84ad881aebb, type: 3}
   - AudioKey: CurtainUp
     AudioFile: {fileID: 8300000, guid: 689776d86b90d4c1a8ffa717eea9b909, type: 3}
+  - AudioKey: PickCard0
+    AudioFile: {fileID: 8300000, guid: f7a59c20c484c2a4a92c6792d6e2b18b, type: 3}
+  - AudioKey: PickCard1
+    AudioFile: {fileID: 8300000, guid: 14a54a14b8e4ce049a2d37253c82a701, type: 3}
+  - AudioKey: PickCard2
+    AudioFile: {fileID: 8300000, guid: 3e21e197c90580b42b127f0a0e9064fc, type: 3}
+  - AudioKey: PickCard3
+    AudioFile: {fileID: 8300000, guid: d03b8cd0c9b62924d873dcfb49173789, type: 3}
