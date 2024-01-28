@@ -93,6 +93,7 @@ public class PlayerHand : MonoBehaviour
         var handSFX = Random.Range(0, 2) == 0;
         
         _audioService.PlaySFX(handSFX ? "DealCardsFast" : "DealCardsSlow");
+        
         for (var index = 0; index < InitialCards; index++)
         {
             var forceActionCard = index < InitialForcedActionCards;

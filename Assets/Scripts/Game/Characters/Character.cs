@@ -30,7 +30,7 @@ public class Character : MonoBehaviour
         if(_mask!=null)
             _mask.sprite = _visualData._defaultCharacter;
 
-        var pos = visualData._hatPosition;
+        var pos = _visualData._hatPosition;
         pos.y += 3f;
         _reactionObject.transform.localPosition = pos;
         
@@ -69,6 +69,10 @@ public class Character : MonoBehaviour
 
     private IEnumerator AnimateReaction(Sprite reactionSprite)
     {
+        var pos = _visualData._hatPosition;
+        pos.y += 3f;
+        _reactionObject.transform.localPosition = pos;
+        
         var spriteRenderer = _reactionObject.GetComponent<SpriteRenderer>();
         spriteRenderer.DOFade(0.7f, 0);
         yield return new WaitForSeconds(Random.Range(0f, 0.5f));
@@ -76,6 +80,6 @@ public class Character : MonoBehaviour
         _reactionObject.transform.DOScale(0, 0.5f).From().SetEase(Ease.OutBack);
         yield return new WaitForSeconds(Random.Range(3f, 3.5f));
         spriteRenderer.DOFade(0, 0.5f).OnComplete(() => spriteRenderer.sprite = null);
-        //spriteRenderer.transform.DOMoveY(1, 0.5f).SetRelative().SetEase(Ease.InBack);
+        _reactionObject.transform.DOMoveY(1, 0.5f).SetRelative().SetEase(Ease.InBack);
     }
 }

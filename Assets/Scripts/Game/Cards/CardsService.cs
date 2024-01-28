@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class CardsService : ICardsService
 {
-    const int ChanceToGetActionCard = 0;
+    const int ChanceToGetActionCard = 8;
     
     private Dictionary<ActionCardData, bool> _actionCardsDeck = new();
     private Dictionary<BonusCard, bool> _bonusCardsDeck = new();
