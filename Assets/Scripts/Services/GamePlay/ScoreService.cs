@@ -29,7 +29,7 @@ public class ScoreService : IScoreService
     public void SpreadScore()
     {
         var currentTurnScore = (_reactionScore * _roundMultiplier)/7;
-        _totalScore += currentTurnScore;
+        _totalScore = Mathf.Clamp(_totalScore+currentTurnScore, -1, 1);
         UpdateUI.Invoke(currentTurnScore);
         
         _roundMultiplier = 1;
