@@ -17,3 +17,35 @@ MonoBehaviour:
     AudioFile: {fileID: 8300000, guid: 058a633a3e588e84089585c121600d42, type: 3}
   - AudioKey: MusicLoop
     AudioFile: {fileID: 8300000, guid: fd9dffe923afcbc4ca746136f14f65dc, type: 3}
+  - AudioKey: LaughHigh1
+    AudioFile: {fileID: 8300000, guid: 4100cdf747db94f4b9866f422ba9e59f, type: 3}
+  - AudioKey: LaughHigh2
+    AudioFile: {fileID: 8300000, guid: c97d280ce675ec9458f400683ba7cc10, type: 3}
+  - AudioKey: LaughHigh3
+    AudioFile: {fileID: 8300000, guid: f2c159c9d1b8ddf49b48a436a626fa3c, type: 3}
+  - AudioKey: LaughGood1
+    AudioFile: {fileID: 8300000, guid: 0275c54ba057b9e4b86b19becd2e5537, type: 3}
+  - AudioKey: LaughGood2
+    AudioFile: {fileID: 8300000, guid: 2e06174acfe24fe4c82603dc40944527, type: 3}
+  - AudioKey: LaughGood3
+    AudioFile: {fileID: 8300000, guid: aead896b6b127b04d9036434df09e9bb, type: 3}
+  - AudioKey: LaughMid1
+    AudioFile: {fileID: 8300000, guid: deba8c88f79cef148934a6d4ddf67ea1, type: 3}
+  - AudioKey: LaughMid2
+    AudioFile: {fileID: 8300000, guid: 4f9af12cb93eb7343bf29dbe88db2930, type: 3}
+  - AudioKey: LaughMid3
+    AudioFile: {fileID: 8300000, guid: 6b0e0b5caa06ecb4c87b0d92be736b21, type: 3}
+  - AudioKey: LaughBad1
+    AudioFile: {fileID: 8300000, guid: 79a0c782dffe33d44815b636cdb8c2c8, type: 3}
+  - AudioKey: LaughBad2
+    AudioFile: {fileID: 8300000, guid: d562bf256a7fee346a5df67a1a4a12f3, type: 3}
+  - AudioKey: LaughBad3
+    AudioFile: {fileID: 8300000, guid: 73bf48f582bb30241a93eac3e4ae6628, type: 3}
+  - AudioKey: LaughWorse1
+    AudioFile: {fileID: 8300000, guid: b4eb14eda926fac48b5053513819f6f3, type: 3}
+  - AudioKey: LaughWorse2
+    AudioFile: {fileID: 8300000, guid: 93bf6e190da93534493a31a214304ba5, type: 3}
+  - AudioKey: LaughWorse3
+    AudioFile: {fileID: 8300000, guid: 502fb19d1f0c92e41af43c6bef37a5a2, type: 3}
+  - AudioKey: SFX
+    AudioFile: {fileID: 8300000, guid: 502fb19d1f0c92e41af43c6bef37a5a2, type: 3}

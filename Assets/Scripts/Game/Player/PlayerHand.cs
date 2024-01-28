@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DG.Tweening;
+using Services.Runtime.AudioService;
 using UnityEngine;
 using Zenject;
 
@@ -19,17 +20,19 @@ public class PlayerHand : MonoBehaviour
 
     private ICardsService _cardsService;
     private IScoreService _scoreService;
+    private IAudioService _audioService;
 
     private int _currentTurn;
 
     private int _currentActionCards;
 
     [Inject]
-    public void Construct(ICardsService cardsService, IScoreService scoreService)
+    public void Construct(ICardsService cardsService, IScoreService scoreService, IAudioService audioService)
     {
         _cardsService = cardsService;
         _scoreService = scoreService;
-
+        _audioService = audioService;
+        
         _cardsService.SetHolder(_cardsHolder);
         _scoreService.DiscardDraw += DiscardHandWrapper;
     }
@@ -55,6 +58,7 @@ public class PlayerHand : MonoBehaviour
 
     private void GetInitialTurnHand()
     {
+        _audioService.PlaySFX("DealCards");
         for (var index = 0; index < InitialCards; index++)
         {
             var forceActionCard = index < InitialForcedActionCards;
@@ -115,6 +119,7 @@ public class PlayerHand : MonoBehaviour
 
             if (_handCards.Count < InitialCards)
             {
+                _audioService.PlaySFX("DrawCard");
                 FetchCard(_currentActionCards == 0);
             }
         }
