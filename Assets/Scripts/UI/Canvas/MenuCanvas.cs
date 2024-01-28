@@ -44,8 +44,6 @@ namespace UI.Canvas
 
         private void HandlePlay()
         {
-            _audioService.PlaySFX("SFX");
-
             NavigateToScene();
         }
 

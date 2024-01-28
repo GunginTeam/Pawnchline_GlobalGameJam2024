@@ -47,9 +47,17 @@ MonoBehaviour:
     AudioFile: {fileID: 8300000, guid: 93bf6e190da93534493a31a214304ba5, type: 3}
   - AudioKey: LaughWorse3
     AudioFile: {fileID: 8300000, guid: 502fb19d1f0c92e41af43c6bef37a5a2, type: 3}
-  - AudioKey: SFX
-    AudioFile: {fileID: 8300000, guid: 502fb19d1f0c92e41af43c6bef37a5a2, type: 3}
-  - AudioKey: DealCards
+  - AudioKey: DealCardsSlow
     AudioFile: {fileID: 8300000, guid: 3c20e32c416132d43b5d4290eb96d922, type: 3}
+  - AudioKey: DealCardsFast
+    AudioFile: {fileID: 8300000, guid: 1ff76b90ebe5b421bac72e2a9f14302f, type: 3}
   - AudioKey: DrawCard
     AudioFile: {fileID: 8300000, guid: dce0643adaad4004aaf8cc99ae2b92fe, type: 3}
+  - AudioKey: ShowHand
+    AudioFile: {fileID: 8300000, guid: bb19ed1e802d04a5f9c55914b9fab6b9, type: 3}
+  - AudioKey: Shuffle
+    AudioFile: {fileID: 8300000, guid: a9e9b428389834d65b89ee459c5147ad, type: 3}
+  - AudioKey: CurtainDown
+    AudioFile: {fileID: 8300000, guid: 37432d25f1c5d4fca9c6d84ad881aebb, type: 3}
+  - AudioKey: CurtainUp
+    AudioFile: {fileID: 8300000, guid: 689776d86b90d4c1a8ffa717eea9b909, type: 3}

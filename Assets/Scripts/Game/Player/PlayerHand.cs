@@ -52,13 +52,22 @@ public class PlayerHand : MonoBehaviour
     private void DiscardHandWrapper() => DiscardHand(-1);
 
     private void Start()
-    {
+    { 
+        transform.DOLocalMoveY(-100, 0f);
+
+        Invoke(nameof(HandleShuffleSFX), 0.75f);
+        Invoke(nameof(DelayedShowHand), 1.75f);
+        
         GetInitialTurnHand();
     }
 
+    private void HandleShuffleSFX() => _audioService.PlaySFX("Shuffle");
+
     private void GetInitialTurnHand()
     {
-        _audioService.PlaySFX("DealCards");
+        var handSFX = Random.Range(0, 2) == 0;
+        
+        _audioService.PlaySFX(handSFX ? "DealCardsFast" : "DealCardsSlow");
         for (var index = 0; index < InitialCards; index++)
         {
             var forceActionCard = index < InitialForcedActionCards;
@@ -144,6 +153,7 @@ public class PlayerHand : MonoBehaviour
 
     private void HideHand(bool hide)
     {
+        _audioService.PlaySFX("ShowHand");
         transform.DOLocalMoveY(hide ? -100 : 0, 0.25f);
     }
 

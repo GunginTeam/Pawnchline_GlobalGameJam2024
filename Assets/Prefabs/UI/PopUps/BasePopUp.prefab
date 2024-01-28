@@ -292,7 +292,7 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 20
   m_TargetDisplay: 0
@@ -320,6 +320,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4688742830484653704}
     m_Modifications:
+    - target: {fileID: 913742749200303111, guid: fff6fdc982cc04ea1ab2546759949a4b, type: 3}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
     - target: {fileID: 4069096704209799051, guid: fff6fdc982cc04ea1ab2546759949a4b, type: 3}
       propertyPath: m_Name
       value: Close_GenericIconButton

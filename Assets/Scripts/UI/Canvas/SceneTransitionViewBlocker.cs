@@ -1,6 +1,8 @@
 using System;
 using DG.Tweening;
+using Services.Runtime.AudioService;
 using UnityEngine;
+using Zenject;
 
 namespace UI.Canvas
 {
@@ -9,6 +11,14 @@ namespace UI.Canvas
         [SerializeField] private CanvasGroup _interactionBlocker;
         [SerializeField] private Transform _viewBlocker;
 
+        private IAudioService _audioService;
+        
+        [Inject]
+        public void Construct(IAudioService audioService)
+        {
+            _audioService = audioService;
+        }
+        
         private void Start()
         {
             TransitionOff();
@@ -16,6 +26,8 @@ namespace UI.Canvas
 
         private void TransitionOff(Action onComplete = null)
         {
+            _audioService.PlaySFX("CurtainUp");
+
             _interactionBlocker.blocksRaycasts = true;
             
             _viewBlocker.DOMoveY(Screen.height, 1).SetEase(Ease.OutBounce)
@@ -28,6 +40,8 @@ namespace UI.Canvas
 
         public void TransitionOn(Action onComplete = null)
         {
+            _audioService.PlaySFX("CurtainDown");
+            
             _interactionBlocker.blocksRaycasts = true;
             
             _viewBlocker.DOMoveY(0, 1).SetEase(Ease.OutBounce)

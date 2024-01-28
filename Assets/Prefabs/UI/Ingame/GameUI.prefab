@@ -927,6 +927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6936743875574891397}
   - component: {fileID: 4999594061628832073}
+  - component: {fileID: 425671935921089066}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -976,6 +977,18 @@ MonoBehaviour:
   _openerTurnShownDebug: {fileID: 2927002650937299275}
   _bodyTurnShownDebug: {fileID: 1669803738503005242}
   _punchTurnShownDebug: {fileID: 6917659508639819756}
+--- !u!225 &425671935921089066
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8176027920051761792}
+  m_Enabled: 1
+  m_Alpha: 0.9
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8527778810066597178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,7 +1220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8050845196214186250, guid: 1daae41c6dd974af7b9ec43cac637e84, type: 3}
       propertyPath: m_fontSize
-      value: 13
+      value: 12.95
       objectReference: {fileID: 0}
     - target: {fileID: 8050845196214186250, guid: 1daae41c6dd974af7b9ec43cac637e84, type: 3}
       propertyPath: m_fontColor32.rgba

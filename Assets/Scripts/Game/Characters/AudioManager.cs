@@ -68,16 +68,19 @@ public class AudioManager : MonoBehaviour
 
     IEnumerator PlayMusicDelayed()
     {
+        yield return new WaitForSeconds(2.25f);
+
         _audioService.PlayMusic("MusicIntro");
-        yield return null;
-//Make this happen
-//        _audioService.PlayMusic("MusicLoop");
+        yield return new WaitForSeconds(81.25f);
+        
+        _audioService.StopMusic("MusicIntro");
+        _audioService.PlayMusic("MusicLoop");
     }
 
     IEnumerator LowerMusicVolumeFaded()
     {
-        _audioService.AddMusicVolume(-10f);
+        _audioService.AddMusicVolume(-6f);
         yield return new WaitForSeconds(5f);
-        _audioService.AddMusicVolume(10f);
+        _audioService.AddMusicVolume(6f);
     }
 }
