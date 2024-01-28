@@ -1,7 +1,9 @@
 using System;
 using DG.Tweening;
+using Services.Runtime.AudioService;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public abstract class BaseView : MonoBehaviour
 {
@@ -16,6 +18,14 @@ public abstract class BaseView : MonoBehaviour
     private Tween _imageTween;
     private Tween _scaleTween;
     private bool _onTransition;
+
+    private IAudioService _audioService;
+        
+    [Inject]
+    private void Construct(IAudioService audioService)
+    {
+        _audioService = audioService;
+    }
     
     public BaseView Initialize()
     {
@@ -68,6 +78,8 @@ public abstract class BaseView : MonoBehaviour
 
     protected virtual void PostClose(Action onPostClose = null)
     {
+        PlayShortButton();
+        
         _image.raycastTarget = false;
         _onTransition = false;
         
@@ -90,4 +102,6 @@ public abstract class BaseView : MonoBehaviour
         _imageTween.Kill();
         _scaleTween.Kill();
     }
+    
+    protected void PlayShortButton() => _audioService.PlaySFX("ButtonShort");
 }
