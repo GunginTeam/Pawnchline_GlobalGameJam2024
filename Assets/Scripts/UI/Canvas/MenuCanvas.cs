@@ -10,9 +10,11 @@ namespace UI.Canvas
         [SerializeField] private Button _playButton;
         [SerializeField] private Button _settingsButton;
         [SerializeField] private Button _creditsButton;
+        [SerializeField] private Button _tutorialButton;
 
         [SerializeField] private GameObject _settingsPopUp;
         [SerializeField] private GameObject _creditsPopUp;
+        [SerializeField] private GameObject _tutorialPopUp;
         
         private IAudioService _audioService;
 
@@ -27,6 +29,7 @@ namespace UI.Canvas
             _playButton.onClick.AddListener(HandlePlay);
             _settingsButton.onClick.AddListener(HandleSettings);
             _creditsButton.onClick.AddListener(HandleCredits);
+            _tutorialButton.onClick.AddListener(HandleTutorial);
             base.Awake();
         }
 
@@ -35,6 +38,7 @@ namespace UI.Canvas
             _playButton.onClick.RemoveAllListeners();
             _settingsButton.onClick.RemoveAllListeners();
             _creditsButton.onClick.RemoveAllListeners();
+            _tutorialButton.onClick.RemoveAllListeners();
             base.OnDestroy();
         }
 
@@ -53,6 +57,11 @@ namespace UI.Canvas
         private void HandleCredits()
         {
             CreateView<CreditsPopUp>(_creditsPopUp, CanvasLayer.PopUps);
+        }
+
+        private void HandleTutorial()
+        {
+            CreateView<TutorialPopup>(_tutorialPopUp, CanvasLayer.PopUps);
         }
     }
 }

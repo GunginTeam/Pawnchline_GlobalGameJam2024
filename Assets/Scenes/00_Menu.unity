@@ -275,8 +275,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Menu_Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7866362340411088841, guid: 79aef07d20075b943867ce9ddbfe6f58, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -231
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028820789801628358, guid: 79aef07d20075b943867ce9ddbfe6f58, type: 3}
+      propertyPath: _tutorialPopUp
+      value: 
+      objectReference: {fileID: 8359937555813431851, guid: ad840a141a732ed4797da2907cbb9e1f, type: 3}
+    - target: {fileID: 9028820789801628358, guid: 79aef07d20075b943867ce9ddbfe6f58, type: 3}
+      propertyPath: _tutorialButton
+      value: 
+      objectReference: {fileID: 2030884068}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79aef07d20075b943867ce9ddbfe6f58, type: 3}
+--- !u!114 &2030884068 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 93017126056390272, guid: 79aef07d20075b943867ce9ddbfe6f58, type: 3}
+  m_PrefabInstance: {fileID: 1752923569}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2639799353310435089
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -72,6 +72,7 @@ public abstract class BaseView : MonoBehaviour
         _onTransition = false;
         
         onPostClose?.Invoke();
+        Destroy(gameObject);
     }
 
     private void ConfigureInitialState()
