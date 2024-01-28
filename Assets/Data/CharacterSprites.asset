@@ -40,9 +40,6 @@ MonoBehaviour:
   - _type: 8
     _defaultCharacter: {fileID: -970174390, guid: 3c7cc488fcbbdef4cadcbe216f2e6ccc, type: 3}
     _hatPosition: {x: -2.53, y: 5.24}
-  - _type: 9
-    _defaultCharacter: {fileID: -1854867700, guid: 3c7cc488fcbbdef4cadcbe216f2e6ccc, type: 3}
-    _hatPosition: {x: -3.1, y: 7.53}
   _hatSprites:
   - _sprite: {fileID: 90948564, guid: 7d546758193e15e478406559d8b986de, type: 3}
   - _sprite: {fileID: -2082948635, guid: 7d546758193e15e478406559d8b986de, type: 3}
