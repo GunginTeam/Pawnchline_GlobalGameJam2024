@@ -160,7 +160,15 @@ public class PlayerHand : MonoBehaviour
 
     private void HideHand(bool hide)
     {
-        _audioService.PlaySFX("ShowHand");
+        if (!hide)
+        {
+            _audioService.PlaySFX("ShowHand");
+        }
+        else
+        {
+            _audioService.PlaySFX("PickCard" +  Random.Range(0, 4));
+        }
+        
         transform.DOLocalMoveY(hide ? -100 : 0, 0.25f);
     }
 
