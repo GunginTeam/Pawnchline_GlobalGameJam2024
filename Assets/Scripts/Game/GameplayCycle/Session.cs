@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Services.Runtime.AudioService;
 using UI.Canvas;
 using UnityEngine;
 using Zenject;
@@ -16,15 +17,17 @@ public class Session : MonoBehaviour
     [SerializeField] private GameCanvas _gameCanvas;
 
     private IScoreService _scoreService;
+    private IAudioService _audioService;
     
     private Round _currentRound;
 
     private int _currentRoundIndex;
 
     [Inject]
-    public void Construct(IScoreService scoreService)
+    public void Construct(IScoreService scoreService, IAudioService audioService)
     {
         _scoreService = scoreService;
+        _audioService = audioService;
     }
 
     public Turn GetCurrentTurn() => _currentRound.CurrentTurn;
@@ -60,6 +63,8 @@ public class Session : MonoBehaviour
     
     private void EndRound()
     {
+        Invoke(nameof(NewRoundSFX), 4);
+
         _currentRoundIndex++;
         OnRoundOver?.Invoke(_currentRoundIndex);
 
@@ -70,6 +75,11 @@ public class Session : MonoBehaviour
         }
 
         StartRound();
+    }
+
+    private void NewRoundSFX()
+    {
+        _audioService.PlaySFX("NextRound");
     }
 
     private void OpenGameOverPopUp() => _gameCanvas.HandleGameOver();
