@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Services.Runtime.AudioService;
 using UnityEngine;
@@ -52,10 +51,14 @@ public class AudioManager : MonoBehaviour
         _audioService.PlaySFX(soundClipString);
     }
 
-
     private void Start()
     {
         PlayGameTheme();
+    }
+
+    private void OnDisable()
+    {
+        _audioService.StopMusic("MusicIntro", 0.5f);
     }
 
     void PlayGameTheme()

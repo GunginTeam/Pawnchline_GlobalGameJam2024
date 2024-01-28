@@ -49,3 +49,7 @@ MonoBehaviour:
     AudioFile: {fileID: 8300000, guid: 502fb19d1f0c92e41af43c6bef37a5a2, type: 3}
   - AudioKey: SFX
     AudioFile: {fileID: 8300000, guid: 502fb19d1f0c92e41af43c6bef37a5a2, type: 3}
+  - AudioKey: DealCards
+    AudioFile: {fileID: 8300000, guid: 3c20e32c416132d43b5d4290eb96d922, type: 3}
+  - AudioKey: DrawCard
+    AudioFile: {fileID: 8300000, guid: dce0643adaad4004aaf8cc99ae2b92fe, type: 3}
