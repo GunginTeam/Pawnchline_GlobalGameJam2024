@@ -34,7 +34,6 @@ public class CharactersManager : MonoBehaviour
     {
         var reactionScore = _characters.Sum(character => character.ReactToCard(jokeData));
         var normalizedScore = reactionScore / 10;
-        Debug.Log("Score: "+normalizedScore);
         _scoreService.SetReactionScore(normalizedScore);
     }
     

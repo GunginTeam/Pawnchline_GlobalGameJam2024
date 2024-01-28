@@ -21,17 +21,9 @@ public class CardsService : ICardsService
         _instancer = instancer;
         _cardsData = cardsData;
         
-        foreach (var cardData in _cardsData.Cards)
-        {
-            _actionCardsDeck.Add(cardData, true);
-        }
-
-        foreach (var bonusCardData in _cardsData.BonusCards)
-        {
-            _bonusCardsDeck.Add(bonusCardData, true);
-        }
+        InitializeCardsLibrary();
     }
-
+    
     public void SetHolder(Transform holder)
     {
         _cardsHolder = holder;
@@ -51,9 +43,28 @@ public class CardsService : ICardsService
 
         return GetActionCard();
     }
-    
-    public BaseCard GetBonusCardWrapper() => GetBonusCard();
 
+    public void Dispose()
+    {
+        _actionCardsDeck.Clear();
+        _bonusCardsDeck.Clear();
+        
+        InitializeCardsLibrary();
+    }
+
+    private void InitializeCardsLibrary()
+    {
+        foreach (var cardData in _cardsData.Cards)
+        {
+            _actionCardsDeck.Add(cardData, true);
+        }
+
+        foreach (var bonusCardData in _cardsData.BonusCards)
+        {
+            _bonusCardsDeck.Add(bonusCardData, true);
+        }
+    }
+    
     private BaseCard GetActionCard()
     {
         var range = Random.Range(0, _actionCardsDeck.Count);

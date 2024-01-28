@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using Services.Runtime.AudioService;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 public class PlayerHand : MonoBehaviour
 {
@@ -59,6 +61,11 @@ public class PlayerHand : MonoBehaviour
         Invoke(nameof(DelayedShowHand), 1.75f);
         
         GetInitialTurnHand();
+    }
+
+    private void OnDisable()
+    {
+        _cardsService.Dispose();
     }
 
     private void HandleShuffleSFX() => _audioService.PlaySFX("Shuffle");

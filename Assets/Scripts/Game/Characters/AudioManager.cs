@@ -79,8 +79,8 @@ public class AudioManager : MonoBehaviour
 
     IEnumerator LowerMusicVolumeFaded()
     {
-        _audioService.AddMusicVolume(-6f);
+        _audioService.AddMusicVolume(-5f);
         yield return new WaitForSeconds(5f);
-        _audioService.AddMusicVolume(6f);
+        _audioService.AddMusicVolume(5f);
     }
 }
