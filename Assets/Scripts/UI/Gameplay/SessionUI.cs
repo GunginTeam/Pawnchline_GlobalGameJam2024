@@ -95,7 +95,7 @@ public class SessionUI : MonoBehaviour
     {
         if (_currentRoundIndex + 1 < 4)
         {
-            _roundText.text = $"ROUND {_currentRoundIndex + 1}";
+            _roundText.text = $"ROUND {_currentRoundIndex + 1} / 3";
             _roundText.transform.parent.DOShakeScale(0.5f, 0.5f);
 
             SetTurnShown(-1);
