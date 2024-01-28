@@ -57,7 +57,7 @@ public class AudioManager : MonoBehaviour
             soundClipString += "Worse";
         }
 
-        soundClipString += Random.Range(1, 3);
+        soundClipString += Random.Range(1, 4);
         _audioService.PlaySFX(soundClipString);
     }
     
