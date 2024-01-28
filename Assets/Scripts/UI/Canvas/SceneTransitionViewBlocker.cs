@@ -30,7 +30,7 @@ namespace UI.Canvas
 
             _interactionBlocker.blocksRaycasts = true;
             
-            _viewBlocker.DOMoveY(Screen.height, 1).SetEase(Ease.OutBounce)
+            _viewBlocker.DOMoveY(Screen.height, 1).SetEase(Ease.InQuart)
                 .OnComplete(() =>
                 {
                     _interactionBlocker.blocksRaycasts = false;
@@ -44,7 +44,7 @@ namespace UI.Canvas
             
             _interactionBlocker.blocksRaycasts = true;
             
-            _viewBlocker.DOMoveY(0, 1).SetEase(Ease.OutBounce)
+            _viewBlocker.DOMoveY(0, 1).SetEase(Ease.OutQuart)
                 .OnComplete(() =>
                 {
                     onComplete?.Invoke();

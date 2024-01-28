@@ -1,3 +1,4 @@
+using System;
 using Services.Runtime.AudioService;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,11 +40,19 @@ namespace UI.Canvas
             _settingsButton.onClick.RemoveAllListeners();
             _creditsButton.onClick.RemoveAllListeners();
             _tutorialButton.onClick.RemoveAllListeners();
+            
             base.OnDestroy();
+        }
+
+        private void Start()
+        {
+            _audioService.PlayMusic("MenuMusic");
         }
 
         private void HandlePlay()
         {
+            _audioService.StopMusic("MenuMusic", 0.5f);
+
             NavigateToScene();
         }
 

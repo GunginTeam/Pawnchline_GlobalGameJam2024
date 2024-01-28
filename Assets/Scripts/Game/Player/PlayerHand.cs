@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Services.Runtime.AudioService;
@@ -61,11 +62,28 @@ public class PlayerHand : MonoBehaviour
         Invoke(nameof(DelayedShowHand), 1.75f);
         
         GetInitialTurnHand();
+        PlayInGameTheme();
     }
 
     private void OnDisable()
     {
-        _cardsService.Dispose();
+        _cardsService.Dispose();   
+    }
+
+    void PlayInGameTheme()
+    {
+        StartCoroutine(PlayDelayedInGameMusic());
+    }
+
+    IEnumerator PlayDelayedInGameMusic()
+    {
+        yield return new WaitForSeconds(2.25f);
+
+        _audioService.PlayMusic("MusicIntro");
+        yield return new WaitForSeconds(81.25f);
+
+        _audioService.StopMusic("MusicIntro");
+        _audioService.PlayMusic("MusicLoop");
     }
 
     private void HandleShuffleSFX() => _audioService.PlaySFX("Shuffle");

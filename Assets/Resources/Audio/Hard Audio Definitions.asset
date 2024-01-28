@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Hard Audio Definitions
   m_EditorClassIdentifier: 
   Audios:
+  - AudioKey: MenuMusic
+    AudioFile: {fileID: 8300000, guid: fd9dffe923afcbc4ca746136f14f65dc, type: 3}
   - AudioKey: MusicIntro
     AudioFile: {fileID: 8300000, guid: 058a633a3e588e84089585c121600d42, type: 3}
   - AudioKey: MusicLoop
