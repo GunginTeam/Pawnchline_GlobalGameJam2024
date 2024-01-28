@@ -17,6 +17,8 @@ public class AudioManager : MonoBehaviour
         _audioService = audioService;
         _scoreService = scoreService;
         _scoreService.PlayScoreSound += OnTurnPassed;
+        
+        DontDestroyOnLoad(this);
     }
 
     public void OnDestroy()
