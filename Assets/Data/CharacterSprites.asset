@@ -15,27 +15,43 @@ MonoBehaviour:
   _characterSprites:
   - _type: 0
     _defaultCharacter: {fileID: -1412516396, guid: 3c7cc488fcbbdef4cadcbe216f2e6ccc, type: 3}
-    _hatPosition: {x: -4.05, y: 6.36}
+    _hatPosition: {x: -4.14, y: 5.52}
   - _type: 1
     _defaultCharacter: {fileID: 108994905, guid: 3c7cc488fcbbdef4cadcbe216f2e6ccc, type: 3}
-    _hatPosition: {x: -4.21, y: -67}
+    _hatPosition: {x: -4.05, y: 5.98}
   - _type: 2
     _defaultCharacter: {fileID: 488821942, guid: 3c7cc488fcbbdef4cadcbe216f2e6ccc, type: 3}
-    _hatPosition: {x: -2.61, y: 7.78}
+    _hatPosition: {x: -2.59, y: 6.92}
   - _type: 3
     _defaultCharacter: {fileID: 1745312896, guid: 3c7cc488fcbbdef4cadcbe216f2e6ccc, type: 3}
-    _hatPosition: {x: -2.76, y: 5.74}
+    _hatPosition: {x: -2.82, y: 4.94}
   - _type: 4
     _defaultCharacter: {fileID: -899551913, guid: 3c7cc488fcbbdef4cadcbe216f2e6ccc, type: 3}
-    _hatPosition: {x: -2.76, y: 6.45}
+    _hatPosition: {x: -2.76, y: 5.6}
   - _type: 5
     _defaultCharacter: {fileID: -1017564317, guid: 3c7cc488fcbbdef4cadcbe216f2e6ccc, type: 3}
-    _hatPosition: {x: -2.39, y: 4.59}
+    _hatPosition: {x: -2.39, y: 3.8}
   - _type: 6
     _defaultCharacter: {fileID: 68259240, guid: 3c7cc488fcbbdef4cadcbe216f2e6ccc, type: 3}
-    _hatPosition: {x: -2.1, y: 5.8}
+    _hatPosition: {x: -2.73, y: 4.98}
+  - _type: 7
+    _defaultCharacter: {fileID: -1211157357, guid: 3c7cc488fcbbdef4cadcbe216f2e6ccc, type: 3}
+    _hatPosition: {x: -5.82, y: 8.59}
+  - _type: 8
+    _defaultCharacter: {fileID: -970174390, guid: 3c7cc488fcbbdef4cadcbe216f2e6ccc, type: 3}
+    _hatPosition: {x: -2.53, y: 5.24}
+  - _type: 9
+    _defaultCharacter: {fileID: -1854867700, guid: 3c7cc488fcbbdef4cadcbe216f2e6ccc, type: 3}
+    _hatPosition: {x: -3.1, y: 7.53}
   _hatSprites:
-  - _sprite: {fileID: 1564086303, guid: a3a496a3244315c4da2d127e4c76ce7a, type: 3}
-  - _sprite: {fileID: 354482197, guid: a3a496a3244315c4da2d127e4c76ce7a, type: 3}
-  - _sprite: {fileID: 1495252512, guid: a3a496a3244315c4da2d127e4c76ce7a, type: 3}
+  - _sprite: {fileID: 90948564, guid: 7d546758193e15e478406559d8b986de, type: 3}
+  - _sprite: {fileID: -2082948635, guid: 7d546758193e15e478406559d8b986de, type: 3}
+  - _sprite: {fileID: -278988697, guid: 7d546758193e15e478406559d8b986de, type: 3}
+  - _sprite: {fileID: 169527045, guid: 7d546758193e15e478406559d8b986de, type: 3}
+  - _sprite: {fileID: 592216862, guid: 7d546758193e15e478406559d8b986de, type: 3}
+  - _sprite: {fileID: 1882950813, guid: 7d546758193e15e478406559d8b986de, type: 3}
+  - _sprite: {fileID: 1181223159, guid: 7d546758193e15e478406559d8b986de, type: 3}
+  - _sprite: {fileID: 1360234263, guid: 7d546758193e15e478406559d8b986de, type: 3}
+  - _sprite: {fileID: 1399030607, guid: 7d546758193e15e478406559d8b986de, type: 3}
+  - _sprite: {fileID: 639235983, guid: 7d546758193e15e478406559d8b986de, type: 3}
   _humorSet: {fileID: 11400000, guid: b1af2ed8c298e294cb0ddf691e0b0cfe, type: 2}

@@ -550,7 +550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3584391126611358162, guid: 445202403f7436d4b92e231d5908165f, type: 3}
       propertyPath: _animalTypeAmount
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3584391126611358162, guid: 445202403f7436d4b92e231d5908165f, type: 3}
       propertyPath: _characters.Array.size
@@ -680,7 +680,8 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 40
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5548717881805794261, guid: 445202403f7436d4b92e231d5908165f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 445202403f7436d4b92e231d5908165f, type: 3}
 --- !u!1001 &7213914090012217539
 PrefabInstance:

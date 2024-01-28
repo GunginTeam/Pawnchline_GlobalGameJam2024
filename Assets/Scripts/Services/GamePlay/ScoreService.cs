@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScoreService : IScoreService
 {
     public event Action<JokeData> ActionCardPlayed;
+    public event Action<float> PlayScoreSound;
     public event Action DiscardDraw;
     public event Action<float> UpdateUI;
 
@@ -27,9 +28,6 @@ public class ScoreService : IScoreService
     public void SpreadScore()
     {
         var currentTurnScore = (_reactionScore * _roundMultiplier)/7;
-        Debug.Log("Increasing meter by: "+currentTurnScore);
-        Debug.Log("The reaction score was: "+_reactionScore);
-        Debug.Log("The multiplier was: "+_roundMultiplier);
         UpdateUI.Invoke(currentTurnScore);
         
         _roundMultiplier = 1;
@@ -38,12 +36,12 @@ public class ScoreService : IScoreService
     public void SetScoreMultiplier(float multiplier)
     {
         _roundMultiplier *= multiplier;
-        Debug.Log("Set the multiplier to "+_roundMultiplier);
     }
 
     public void SetReactionScore(float score)
     {
         _reactionScore = score;
+        PlayScoreSound?.Invoke(_reactionScore);
     }
 
     public void SetIrony()

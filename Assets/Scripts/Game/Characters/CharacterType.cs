@@ -6,5 +6,8 @@
     WOLF,
     PUFFERFISH,
     BUNNY,
-    TOUCAN
+    TOUCAN,
+    TORTOISE,
+    PUG,
+    CRYPTID
 }

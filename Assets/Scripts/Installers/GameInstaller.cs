@@ -38,6 +38,5 @@ public class GameInstaller : MonoInstaller
     {
         Container.Bind<IScoreService>().To<ScoreService>().AsSingle();
         Container.Bind<ICardsService>().To<CardsService>().AsSingle();
-        Container.Bind<ICharacterService>().To<CharacterService>().AsSingle();
     }
 }

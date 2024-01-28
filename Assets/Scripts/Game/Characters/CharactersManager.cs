@@ -17,9 +17,8 @@ public class CharactersManager : MonoBehaviour
     private IScoreService _scoreService;
 
     [Inject]
-    public void Construct(ICharacterService characterService, IScoreService scoreService, CharactersData charactersData)
+    public void Construct(IScoreService scoreService, CharactersData charactersData)
     {
-        characterService.AssignManager(this);
         _charactersData = charactersData;
         _scoreService = scoreService;
 
