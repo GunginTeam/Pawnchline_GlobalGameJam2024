@@ -9,15 +9,22 @@ public class GameInstaller : MonoInstaller
     [SerializeField] private CharactersData _charactersData;
     [SerializeField] private ReactionsModel _reactionsModel;
     [SerializeField] private HumorTypeSprites _humorTypeSprites;
+    [SerializeField] private TextAsset _remoteVariablesData;
 
     public override void InstallBindings()
     {
         Container.Bind<IInstancer>().To<Instancer>().AsSingle();
-
-        InstallPackages();
         
+        InstallPackageData();
+        InstallPackages();
+
         InstallServices();
         InstallModels();
+    }
+
+    private void InstallPackageData()
+    {
+        Container.BindInstance(_remoteVariablesData).AsSingle();
     }
 
     private void InstallPackages()
