@@ -24,7 +24,7 @@ public class GameInstaller : MonoInstaller
 
     private void InstallPackageData()
     {
-        Container.BindInstance(_remoteVariablesData).AsSingle().NonLazy();
+        Container.BindInstance(_remoteVariablesData).AsSingle();
     }
 
     private void InstallPackages()
