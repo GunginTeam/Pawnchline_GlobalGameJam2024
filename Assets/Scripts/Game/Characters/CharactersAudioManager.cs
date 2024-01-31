@@ -4,7 +4,7 @@ using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
 
-public class AudioManager : MonoBehaviour
+public class CharactersAudioManager : MonoBehaviour
 {
     private IAudioService _audioService;
     private IScoreService _scoreService;
