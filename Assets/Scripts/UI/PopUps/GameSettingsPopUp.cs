@@ -20,6 +20,8 @@ public sealed class GameSettingsPopUp : SettingsPopUp
     private void OnDestroy()
     {
         _exitButton.onClick.RemoveAllListeners();
+        
+        base.OnDestroy();
     }
 
     private void HandleExit()

@@ -13,6 +13,8 @@ public sealed class MenuSettingsPopUp : SettingsPopUp
     private void OnDestroy()
     {
         _exitButton.onClick.RemoveAllListeners();
+        
+        base.OnDestroy();
     }
 
     private void HandleExit()
