@@ -1,5 +1,5 @@
+using Services.LocalRemoteVariables;
 using Services.Runtime.AudioService;
-using Services.Runtime.RemoteVariables;
 using UnityEngine;
 using Zenject;
 
@@ -10,7 +10,8 @@ public class GameInstaller : MonoInstaller
     [SerializeField] private ReactionsModel _reactionsModel;
     [SerializeField] private HumorTypeSprites _humorTypeSprites;
     [SerializeField] private TextAsset _remoteVariablesData;
-
+    [SerializeField] public Texture2D _customCursor;
+    
     public override void InstallBindings()
     {
         Container.Bind<IInstancer>().To<Instancer>().AsSingle();
@@ -20,6 +21,8 @@ public class GameInstaller : MonoInstaller
 
         InstallServices();
         InstallModels();
+        
+        Cursor.SetCursor(_customCursor, Vector2.zero, CursorMode.Auto);
     }
 
     private void InstallPackageData()

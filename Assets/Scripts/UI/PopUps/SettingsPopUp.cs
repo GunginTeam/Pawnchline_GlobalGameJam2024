@@ -26,7 +26,7 @@ public class SettingsPopUp : BaseView
         
     }
 
-    protected void OnDestroy()
+    protected virtual void OnDestroy()
     {
         _musicAudio.onClick.RemoveListener(HandleMuteMusic);
         _sfxAudio.onClick.RemoveListener(HandleMuteSFX);

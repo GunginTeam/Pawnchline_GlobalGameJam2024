@@ -79,3 +79,4 @@ MonoBehaviour:
   _reactionsModel: {fileID: 11400000, guid: 15ac51d1879378848af592258668b2dd, type: 2}
   _humorTypeSprites: {fileID: 11400000, guid: 742f27cf0a11149f0a71f20ac8093b8e, type: 2}
   _remoteVariablesData: {fileID: 4900000, guid: 1029643ef0a91d14eb410fc95c3892fb, type: 3}
+  _customCursor: {fileID: 2800000, guid: 8109bafee2ee345529117b937dbe236f, type: 3}

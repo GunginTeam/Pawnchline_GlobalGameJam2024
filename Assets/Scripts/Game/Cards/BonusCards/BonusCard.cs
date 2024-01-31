@@ -1,4 +1,4 @@
-using Services.Runtime.RemoteVariables;
+using Services.LocalRemoteVariables;
 using TMPro;
 using UnityEngine;
 using Zenject;

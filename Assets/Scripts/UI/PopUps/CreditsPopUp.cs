@@ -1,4 +1,4 @@
-using Services.Runtime.RemoteVariables;
+using Services.LocalRemoteVariables;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -14,11 +14,4 @@ public sealed class CreditsPopUp : BaseView
     {
         _remoteVariablesService = remoteVariablesService;
     }
-    //
-    // protected override void PreOpen()
-    // {
-    //     base.PreOpen();
-    //
-    //     _creditsText.text = _remoteVariablesService.GetString("CREDITS_TEXT_0");
-    // }
 }

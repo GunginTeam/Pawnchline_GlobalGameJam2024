@@ -10,7 +10,7 @@ public sealed class MenuSettingsPopUp : SettingsPopUp
         _exitButton.onClick.AddListener(HandleExit);
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
         _exitButton.onClick.RemoveAllListeners();
         
